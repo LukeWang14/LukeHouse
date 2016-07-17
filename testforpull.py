@@ -1,5 +1,5 @@
 ﻿#LukeHouse test
-//我在前面加注释
+//我在前面加注释了
 import sys
 Onedimensionlist = []
 Twodimensionlist = []
