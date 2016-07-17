@@ -18,3 +18,4 @@ for x in Twodimensionlist:
         Onedimensionlist.append(y) 
 print(Onedimensionlist)
 //试一试
+//qz发给Wyx
