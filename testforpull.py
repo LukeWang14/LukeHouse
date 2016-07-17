@@ -1,4 +1,5 @@
 ﻿#LukeHouse test
+﻿#加前面
 #只加注释只加注释啦啦啦啦
 import sys
 Onedimensionlist = []
