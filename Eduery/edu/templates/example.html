@@ -1,0 +1,260 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>eduery</title> 
+		
+		
+		<style type = "text/css"> 
+			.header{
+				height: 65px;		
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.show_log{
+				height: 258.75px;
+				width: 100%;
+			}
+			.search_section{
+				background-color: #e3e0e0;
+				padding: 30px 59.5px 0 59.5px;
+				height : 1000px;
+			}
+			.search_type_1{
+				background-color: white;
+				height: 79px;
+				border: 0.5px grey solid;
+				border-radius: 3px;
+			}
+			.search_type_2{
+				background-color: white;
+				height: 79px;
+				margin: 0 0 60px 0;
+				border: 0.5px grey solid;
+				border-radius: 3px;
+			}
+			.type_name{
+				float: left;
+				margin: 12px 20px 0 0;
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.type{
+				float: left;
+				margin: 25px 20px 5px 15px;
+				background-color: #e3e0e0;
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.search_class{
+				float: left;
+				height: 331px;				
+				background-color: white;
+				border: 0.5px grey solid;
+				border-radius: 3px;
+				padding: 15px;
+				margin: 0 18px 15px 0;
+			}
+			.class_pic{
+				width: 230px;
+				height: 176px;
+				border: 0.5px grey solid;
+			}
+			.class_name{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				padding: 10px;
+				text-align: center;
+			}
+			.class_button{
+				border-radius: 3px;
+				padding: 0 5px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;			
+				margin: 0 50px 47px 50px;				
+			}
+			.class_info{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			
+		</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">EDUERY</div>
+			<div class = "header_load">登录</div>
+			<div class = "header_regist">注册|</div>
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>
+		<image class = "show_log" src = "eduery2.JPG"></image>
+		<div class = "search_section">
+			<div class = "search_type_1">
+				<div class = "type">分类</div>
+				<div class = "type_name">全部 2</div>
+				<div class = "type_name">计算机 1</div>
+				<div class = "type_name">经济学 0</div>
+				<div class = "type_name">法学 0</div>
+				<div class = "type_name">教育学 0</div>
+				<div class = "type_name">文学 0</div>
+				<div class = "type_name">历史学 0</div>
+				<div class = "type_name">理学 0</div>
+				<div class = "type_name">工学 0</div>
+				<div class = "type_name">医学 0</div>
+				<div class = "type_name">其实我也不知道这到底是什么反正是为了凑字数实验长度学 1</div>
+			</div>
+			<div class = "search_type_2">
+				<div class = "type">状态</div>
+				<div class = "type_name">全部 2</div>
+				<div class = "type_name">开课中 1</div>
+				<div class = "type_name">即将开课 0</div>
+				<div class = "type_name">已结课 1</div>
+			</div>
+			<div class = "search_class t1">
+				<image class = "class_pic" src = "eduery.JPG"></image>
+				<div class = "class_name">Eduery网站介绍</div>
+				<div class = "class_button">开课中</div>
+				<div class = "class_info">选课人数： 3</div>
+				<div class = "class_info">开始时间： 2016-07-17</div>
+			</div>
+			<div class = "search_class t10">
+				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+				<div class = "class_name">FFF团烧烤教学</div>
+				<div class = "class_button">已结课</div>
+				<div class = "class_info">选课人数： 1</div>
+				<div class = "class_info">开始时间： 1111-11-11</div>
+			</div>
+			<div class = "search_class t10">
+				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+				<div class = "class_name">FFF团烧烤教学</div>
+				<div class = "class_button">已结课</div>
+				<div class = "class_info">选课人数： 1</div>
+				<div class = "class_info">开始时间： 1111-11-11</div>
+			</div>
+			<div class = "search_class t10">
+				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+				<div class = "class_name">FFF团烧烤教学</div>
+				<div class = "class_button">已结课</div>
+				<div class = "class_info">选课人数： 1</div>
+				<div class = "class_info">开始时间： 1111-11-11</div>
+			</div>
+			<div class = "search_class t10">
+				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+				<div class = "class_name">FFF团烧烤教学</div>
+				<div class = "class_button">已结课</div>
+				<div class = "class_info">选课人数： 1</div>
+				<div class = "class_info">开始时间： 1111-11-11</div>
+			</div>
+		</div>
+		
+	</body> 
+	<script type="text/javascript">
+	var class_button = document.getElementsByClassName("class_button");
+	for(var i = 0; i < class_button.length; i++){
+		if(class_button[i].innerText === "开课中"){
+			class_button[i].style.backgroundColor = "#63318F";
+			class_button[i].style.color = "white";
+			class_button[i].style.border = "1px solid #63318F";
+		}
+		if(class_button[i].innerText === "已结课"){
+			class_button[i].style.backgroundColor = "#e3e0e0";
+			class_button[i].style.color = "black";
+			class_button[i].style.border = "1px solid #e3e0e0";
+		}
+		if(class_button[i].innerText === "即将开课"){
+			class_button[i].style.backgroundColor = "#e3e0e0";
+			class_button[i].style.color = "black";
+			class_button[i].style.border = "1px solid #63318F";
+		}
+	}
+	var search_type_1 = document.getElementsByClassName("search_type_1")[0].getElementsByClassName("type_name");
+	for(var i = 0; i < search_type_1.length; i++){
+		search_type_1[i].onclick = (function(i){
+			return function(){
+				var search_class = document.getElementsByClassName("search_class");
+				
+				if(i === 0){
+					for(var j = 0; j < search_class.length; j++){
+						search_class[j].style.display = "block";
+					}
+				}
+				else{
+					for(var j = 0; j < search_class.length; j++){
+						search_class[j].style.display = "none";
+					}
+					var class_type = 't' + i;
+					var final_show = document.getElementsByClassName(class_type);
+					for(var j = 0; j < final_show.length; j++){
+						final_show[j].style.display = "block";
+					}
+				}
+			}
+		})(i);
+	}
+	var search_type_2 = document.getElementsByClassName("search_type_2")[0].getElementsByClassName("type_name");
+	var stat = ["开课中","即将开课","已结课"];
+	for(var i = 0; i < search_type_2.length; i++){
+		search_type_2[i].onclick = (function(i){
+			return function(){
+				var search_class = document.getElementsByClassName("search_class");			
+				if(i === 0){
+					for(var j = 0; j < search_class.length; j++){
+						search_class[j].style.display = "block";
+					}
+				}
+				else{
+					for(var j = 0; j < search_class.length; j++){
+						if(search_class[j].getElementsByClassName("class_button")[0].innerText != stat[i-1])
+							search_class[j].style.display = "none";
+						else search_class[j].style.display = "block";
+					}
+					
+				}
+			}
+		})(i);
+	}		
+	var search_section = document.getElementsByClassName("search_section")[0];
+	search_section.style.height = document.body.scrollHeight - 300 + "px";
+	</script> 
+</html>

@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>school</title> 
+		
+		
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;
+				
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.school{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 59.5px 0 59.5px;
+			}
+			.school_info{
+				width: 25%;
+				height: 400px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.teacher_control{
+				width: 65%;
+				height: 150px;
+				border: 1px solid grey;
+				float: right;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.student_control{
+				width: 65%;
+				height: 150px;
+				border: 1px solid grey;
+				float: right;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.course_control{
+				width: 65%;
+				height: 330px;
+				border: 1px solid grey;
+				float: right;
+				background-color: white;	
+			}
+			</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "/static/img/eduery.JPG"/>
+			<div class = "header_name">FFF团烧烤教学</div>
+			{% if username != 'null' %}
+            <div class = "header_load">{{username}}</div>
+            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
+            {% else %}
+			<div class = "header_load"><a href = "/login/">登录</a></div>
+			<div class = "header_regist"><a href = "/register/">注册</a></div>
+            {% endif %}
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>	
+		<div class = "school">
+			<div class = "school_info">这是学校信息</div>
+			<div class = "teacher_control">这是教师信息</div>
+			<div class = "student_control">这是学生信息</div>
+			<div class = "course_control">这是课程信息</div>
+		</div>
+	</body> 
+	<script type="text/javascript">
+	
+	</script> 
+</html>

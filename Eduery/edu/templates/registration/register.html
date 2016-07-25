@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+html
+{
+	height:100%;
+	width: 100%;
+	padding: 0;
+    margin:0;
+	color:white;
+}
+body
+{
+    height:100%;
+	width: 100%;
+	padding: 0;
+    margin:0;
+	background-position: center;
+	background-size: contain; 
+	background:url(/static/img/logback.jpg);
+}
+#registerframe
+{
+	position:absolute;
+	left: 35%;
+	top: 20%;
+	width: 30%;
+	height: 60%;
+	background-color: rgba(255,255,255,0.4);
+}
+#headshowing
+{
+	position:absolute;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 25%;
+	font-family: 'Microsoft YaHei';
+	font-size: 50px;
+	Color:#000;
+	text-align:center;
+}
+#center
+{
+	position:absolute;
+	left: 0%;
+	top: 25%;
+	width: 100%;
+	height: 75%;
+	font-family: 'Microsoft YaHei';
+	font-size: 20px;
+	Color:#000;
+	text-align:center;
+}
+#selectstatus
+{
+	position:absolute;
+	left: 40%;
+	top: 30%;
+	width: 20%;
+	height: 8%;
+}
+#selectit
+{
+	position:absolute;
+	left: 40%;
+	top: 80%;
+	width: 20%;
+	height: 15%;
+}
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>用户注册</title>
+</head>
+<script>
+function selectthestatus()
+{
+	var theselect = document.getElementById("selectstatus").value;
+	var thesubmit = document.getElementById("selectit").value;
+	console.log(theselect);
+	if(theselect == 'student')
+	{
+		window.location.href="/registerstudent";
+	}
+	else if(theselect == 'teacher')
+	{
+		window.location.href="/registerteacher";
+	}
+	else if(theselect == 'school')
+	{
+		window.location.href="/registerschool";
+	}
+}
+</script>
+<body>
+<div id = "registerframe">
+	<div id = "headshowing">选择您的身份
+	</div>
+	<div id = "center">
+	<select name="身份" id="selectstatus" class="status">
+	<option value="student">学生</option>
+	<option value="teacher">教师</option>
+	<option value="school">学校</option>
+	</select>
+	<input type = "button" id = "selectit" value = "选择"; 		onclick = "selectthestatus()" style = "width: 20%; height: 15%">
+	</div>
+</div>
+</body>
+</html>

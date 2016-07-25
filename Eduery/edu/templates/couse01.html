@@ -1,0 +1,308 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>FFF团烧烤教学</title> 
+		
+		
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;
+				
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.course{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 59.5px 0 59.5px;
+			}
+			.course_detail{
+				background-color: white;
+				height: 430px;
+				border: 1px solid grey;
+				border-radius: 5px;	
+				margin-bottom: 20px;
+			}
+			.course_name{
+				font: 24px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.course_from{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.course_media{
+				width : 45%;
+				height: 300px;
+				float: left;
+			}
+			.course_info_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 45%;
+				float: left;
+			}
+			.course_info_content{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 22.5%;
+				float: left;		
+			}
+			.course_info_button{
+				border-radius: 3px;
+				text-align: center;		
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 45%;
+				float: left;
+				background-color: #63318F;
+				color: white;
+			}
+			.course_part_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F;
+			}
+			.course_intro{
+				width: 60%;
+				height: 200px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;
+				margin-bottom: 20px;
+			}			
+			.course_intro_content{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;		
+			}
+			.course_index{
+				width: 60%;
+				height: 200px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.course_index_span_all{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;
+				right: 40%;
+				position: absolute;
+			}
+			.course_index_1{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;					
+			}
+			.course_index_2{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				display: none;
+			}
+			.course_index_span{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;			
+			}
+			.course_question{
+				width: 60%;
+				height: 200px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;
+			}
+			.course_question_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;	
+			}
+			.course_question_ans{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+			}
+			.course_teacher{
+				width: 30%;
+				height: 300px;
+				float: right;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;
+				margin-left: 20px;
+			}
+			.course_teacher_pic{
+				width: 80px;
+				height: 80px;
+				border-radius: 100%;
+				position: relative;				
+				left: 37%;
+				background-color: white;
+				padding: 10px;
+			}
+			.course_teacher_name{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				margin-top: -40px;
+			}
+			.course_teacher_job{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;	
+				color: grey;
+			}
+			.course_teacher_info{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;
+				height: 180px;				
+			}
+		</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">FFF团烧烤教学</div>
+			<div class = "header_load">登录</div>
+			<div class = "header_regist">注册|</div>
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>		
+		<div class = "course">
+			<div class = "course_detail">
+				<div class = "course_name">FFF团烧烤教学</div>
+				<div class = "course_from">来自：FFF团 | 分类：其实我也不知道这到底是什么反正是为了凑字数实验长度学</div>
+				<image class = "course_media" src = "eduery.JPG"></image>
+				<div class = "course_info">
+					<div class = "course_info_title">课程信息</div>
+					<div class = "course_info_content">选课人数：1</div>
+					<div class = "course_info_content">开课时间：1111-11-11</div>
+					<div class = "course_info_content">当前进度：无</div>
+					<div class = "course_info_content">投入时间：一生</div>
+					<div class = "course_info_content">课程代码：FFF</div>
+					<div class = "course_info_content">结课时间：永远</div>
+					<div class = "course_info_button">加入课程</div>
+				</div>
+			</div>
+			<div class = "course_intro">
+				<div class = "course_part_title">课程简介</div>
+				<div class = "course_intro_content">FFF团教你做烧烤</div>
+			</div>
+			<div class = "course_teacher">
+				<div class = "course_part_title">授课教师</div>
+				<image class = "course_teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
+				<div class = "course_teacher_name">FFF团团长</div>
+				<div class = "course_teacher_job">FFF团 团长</div>
+				<div class = "course_teacher_info">这人就是团长</div>
+			</div>
+			<div class = "course_index">
+				<div class = "course_part_title">课程章节
+					<a class = "course_index_span_all">[全部展开]</a>
+				</div>				
+				<div class = "course_index_1">第一章 烧烤魔法
+					<a class = "course_index_span">[展开]</a>
+					<div class = "course_index_2">1.1火球术</div>
+					<div class = "course_index_2">1.2火墙术</div>					
+				</div>															
+				<div class = "course_index_1">第二章 烧烤体术
+					<a class = "course_index_span">[展开]</a>
+					<div class = "course_index_2">2.1麒麟臂</div>
+				</div>		
+			</div>
+			<div class = "course_question">
+				<div class = "course_part_title">常见问题</div>
+				<div class = "course_question_title">如何加入FFF团？</div>
+				<div class = "course_question_ans">只要敢于自称FFF团员，你便成为了FFF团一员。</div>
+				<div class = "course_question_title">还有问题吗？</div>
+				<div class = "course_question_ans">没了。</div>
+			</div>
+			
+		</div>
+		
+	</body> 
+	<script type="text/javascript">
+	var course_index_span_all = document.getElementsByClassName("course_index_span_all")[0];
+	course_index_span_all.onclick = function(){
+		var course_index_2 = document.getElementsByClassName("course_index_2");
+		var course_index_span = document.getElementsByClassName("course_index_span");
+		if(course_index_span_all.innerText === "[全部展开]"){
+			for(var i = 0; i < course_index_2.length; i++){
+				course_index_2[i].style.display = "block";
+			}
+			for(var i = 0; i < course_index_span.length; i++){
+				course_index_span[i].innerText = "[收起]";
+			}
+			course_index_span_all.innerText = "[全部收起]";
+		}
+		else if(course_index_span_all.innerText === "[全部收起]"){
+			for(var i = 0; i < course_index_2.length; i++){
+				course_index_2[i].style.display = "none";
+			}
+			for(var i = 0; i < course_index_span.length; i++){
+				course_index_span[i].innerText = "[展开]";
+			}
+			course_index_span_all.innerText = "[全部展开]";
+		}
+		
+	};
+	var course_index_span = document.getElementsByClassName("course_index_span");
+	for(var i = 0; i < course_index_span.length; i++){
+		course_index_span[i].onclick = (function(i){
+			return function(){
+				var course_index_2 = document.getElementsByClassName("course_index_1")[i].getElementsByClassName("course_index_2");
+				var course_index_span_all = document.getElementsByClassName("course_index_span_all")[0];
+				if(course_index_span[i].innerText === "[展开]"){
+					for(var j = 0; j < course_index_2.length; j++){
+						course_index_2[j].style.display = "block";
+					}	
+					course_index_span[i].innerText = "[收起]";
+					course_index_span_all.innerText = "[全部收起]";
+				}
+				else if(course_index_span[i].innerText === "[收起]"){
+					for(var j = 0; j < course_index_2.length; j++){
+						course_index_2[j].style.display = "none";
+					}
+					course_index_span[i].innerText = "[展开]";
+					course_index_span_all.innerText = "[全部展开]";
+				}	
+			}				
+		})(i);
+	}
+	</script> 
+</html>
+	
+	

@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>teacher_video</title> 
+		
+		
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;
+				
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.video{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 59.5px 0 59.5px;
+			}
+			.course_index{
+				width: 25%;
+				height: 400px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.course_index_span_all{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;
+				left: 23%;
+				position: absolute;
+			}
+			.course_index_1{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;					
+			}
+			.course_index_2{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				display: none;
+			}
+			.course_index_span{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;			
+			}
+			.course_control{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;			
+			}
+			.teacher_action{
+				width: 100%;
+				margin-bottom: 20px;
+			}
+			.teacher_action_button{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				margin: 0, 10px, 20px, 0;
+			}
+			.course_video{
+				width: 65%;
+				height: 400px;
+				border: 1px solid grey;
+				float: right;
+			}
+			.course_note{
+				width: 31.5%;
+				height: 300px;
+				border: 1px solid grey;
+				float: right;		
+				background-color: white;
+				margin-top: 20px;
+			}
+			.course_note_content{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				border: 1.5px solid black;
+			}
+			.course_note_add{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				width: 90px;
+				text-align: center;
+				float: right;
+			}
+			.question{
+				width: 65%;
+				height: 300px;
+				border: 1px solid grey;
+				float: right;		
+				background-color: white;
+				margin-top: 20px;
+			}
+			.question_title{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F;	
+			}
+			.question_ans{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				border-bottom: 1px solid grey;
+			}
+			.question_add{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				width: 90px;
+				text-align: center;
+				float: right;
+			}
+			
+			</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">FFF团烧烤教学</div>
+			<div class = "header_load">登录</div>
+			<div class = "header_regist">注册|</div>
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>	
+		<div class = "video">
+			<div class = "teacher_action">
+				<a class = "teacher_action_button">上传课件</a>
+				<a class = "teacher_action_button">发布公告</a>
+				<a class = "teacher_action_button">讨论</a>
+			</div>
+			<div class = "course_index">
+				<div class = "course_part_title">课程章节
+					<a class = "course_index_span_all">[全部展开]</a>
+				</div>				
+				<div class = "course_index_1">第一章 烧烤魔法
+					<a class = "course_index_span">[展开]</a>
+					<a class = "course_control">[开放]</a>
+					<div class = "course_index_2">1.1火球术
+						<a class = "course_control">[开放]</a>					
+					</div>
+					<div class = "course_index_2">1.2火墙术
+						<a class = "course_control">[开放]</a>
+					</div>					
+				</div>															
+				<div class = "course_index_1">第二章 烧烤体术
+					<a class = "course_index_span">[展开]</a>
+					<a class = "course_control">[开放]</a>
+					<div class = "course_index_2">2.1麒麟臂
+						<a class = "course_control">[开放]</a>
+					</div>
+				</div>		
+			</div>
+			<video class = "course_video" src = ""></video>
+			<div class = "question">
+				<div class = "question_title">这是问题</div>
+				<div class = "question_ans">这是回答</div>		
+				<div class = "question_add">回答问题</div>
+			</div>
+			
+		</div>
+	</body> 
+	<script type="text/javascript">
+	var course_index_span_all = document.getElementsByClassName("course_index_span_all")[0];
+	course_index_span_all.onclick = function(){
+		var course_index_2 = document.getElementsByClassName("course_index_2");
+		var course_index_span = document.getElementsByClassName("course_index_span");
+		if(course_index_span_all.innerText === "[全部展开]"){
+			for(var i = 0; i < course_index_2.length; i++){
+				course_index_2[i].style.display = "block";
+			}
+			for(var i = 0; i < course_index_span.length; i++){
+				course_index_span[i].innerText = "[收起]";
+			}
+			course_index_span_all.innerText = "[全部收起]";
+		}
+		else if(course_index_span_all.innerText === "[全部收起]"){
+			for(var i = 0; i < course_index_2.length; i++){
+				course_index_2[i].style.display = "none";
+			}
+			for(var i = 0; i < course_index_span.length; i++){
+				course_index_span[i].innerText = "[展开]";
+			}
+			course_index_span_all.innerText = "[全部展开]";
+		}
+		
+	};
+	var course_index_span = document.getElementsByClassName("course_index_span");
+	for(var i = 0; i < course_index_span.length; i++){
+		course_index_span[i].onclick = (function(i){
+			return function(){
+				var course_index_2 = document.getElementsByClassName("course_index_1")[i].getElementsByClassName("course_index_2");
+				var course_index_span_all = document.getElementsByClassName("course_index_span_all")[0];
+				if(course_index_span[i].innerText === "[展开]"){
+					for(var j = 0; j < course_index_2.length; j++){
+						course_index_2[j].style.display = "block";
+					}	
+					course_index_span[i].innerText = "[收起]";
+					course_index_span_all.innerText = "[全部收起]";
+				}
+				else if(course_index_span[i].innerText === "[收起]"){
+					for(var j = 0; j < course_index_2.length; j++){
+						course_index_2[j].style.display = "none";
+					}
+					course_index_span[i].innerText = "[展开]";
+					course_index_span_all.innerText = "[全部展开]";
+				}	
+			}				
+		})(i);
+	}
+	</script> 
+</html>

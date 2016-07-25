@@ -1,0 +1,114 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>teacher</title> 
+		
+		
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;
+				
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.teacher{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 59.5px 0 59.5px;
+			}
+			.teacher_info{
+				width: 25%;
+				height: 400px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+			}
+			.teacher_course_stat{
+				width: 65%;			
+				float: right;
+			}
+			.teacher_course{
+				width: 65%;
+				height: 150px;
+				border: 1px solid grey;
+				float: right;
+				background-color: white;	
+			}
+			
+			</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">FFF团烧烤教学</div>
+			{% if username != 'null' %}
+            <div class = "header_load">{{username}}</div>
+            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
+            <div class = "header_changeimfo"><a href = "/changeselfinformation/">修改个人信息</a></div>
+            <div class = "header_selfintro">{{selfintroduction}}</div>
+            {% else %}
+			<div class = "header_load"><a href = "/login/">登录</a></div>
+			<div class = "header_regist"><a href = "/register/">注册</a></div>
+            {% endif %}
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>	
+		<div class = "teacher">
+			<div class = "teacher_info">这是教师信息</div>
+			<div class = "teacher_course_stat">开课中 已结课 即将开课</div>
+			<div class = "teacher_course">这是教师的课程,点击进入</div>
+			<div class = "teacher_course">这是教师的课程,点击进入</div>
+		</div>
+	</body> 
+	<script type="text/javascript">
+	
+	</script> 
+</html>

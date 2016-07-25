@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<style type="text/css">
+html
+{
+	height:100%;
+	width: 100%;
+	padding: 0;
+    margin:0;
+	color:white;
+}
+body
+{
+    height:100%;
+	width: 100%;
+	padding: 0;
+    margin:0;
+	background-position: center;
+	background-size: contain; 
+	background:url(/static/img/logback.jpg);
+}
+#registerschoolframe
+{
+	position:absolute;
+	left: 35%;
+	top: 20%;
+	width: 30%;
+	height: 60%;
+	background-color: rgba(255,255,255,0.4);
+}
+#headshowing
+{
+	position:absolute;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 25%;
+	font-family: 'Microsoft YaHei';
+	font-size: 50px;
+	Color:#000;
+	text-align:center;
+}
+#center
+{
+	position:absolute;
+	left: 0%;
+	top: 25%;
+	width: 100%;
+	height: 75%;
+	font-family: 'Microsoft YaHei';
+	font-size: 20px;
+	Color:#000;
+	text-align:center;
+}
+#registerschool
+{
+	position:absolute;
+	left: 40%;
+	top: 80%;
+	width: 20%;
+	height: 15%;
+}
+</style>
+    <title>学校注册界面</title>
+</head>
+
+<body>
+<div id = "registerschoolframe">
+<div id = "headshowing">
+学校用户注册界面
+</div>
+<div id = "center">
+<form method = 'post' enctype="multipart/form-data">
+    {{ufsch.as_p}}
+    <input id = "registerschool" type="submit" value = "注册" />
+</form>
+</div>
+</div>
+</body>
+</html>
