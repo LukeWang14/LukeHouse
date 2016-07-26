@@ -84,3 +84,11 @@ class Answer(models.Model):
 class Video(models.Model):
 	FromChapter = models.ForeignKey("Chapter")
 	VideoFile = models.FileField(upload_to = 'videos')
+
+
+class Announcement(models.Model):
+	FromChapter = models.ForeignKey("Chapter")
+	AnnouncementContent = models.CharField(max_length = 50)
+	CreatedAt = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.AnnouncementContent

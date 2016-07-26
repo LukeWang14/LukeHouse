@@ -129,10 +129,18 @@
 
 	<body> 
 		<div class = "header">
-			<image class = "header_log" src = "eduery.JPG"></image>
-			<div class = "header_name">Eduery|个人主页</div>
-			<div class = "header_load">返回首页</div>
-			<div class = "header_regist">我的主页|</div>
+			<image class = "header_log" src = "/static/img/eduery.JPG"/>
+			<div class = "header_name">EDUERY</div>
+            {% if username != 'null' %}
+            <div class = "header_load">{{username}}</div>
+            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
+            <div class = "header_changeimfo"><a href = "/changeselfinformation/">修改个人信息</a></div>
+            <div class = "header_selfintro">{{selfintroduction}}</div>
+            {% else %}
+			<div class = "header_load"><a href = "/login/">登录</a></div>
+			<div class = "header_regist"><a href = "/register/">注册</a></div>
+            {% endif %}
 		</div>	
 		<div class = "teacher">
 			<div class = "left_bar">

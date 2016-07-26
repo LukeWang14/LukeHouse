@@ -9,21 +9,39 @@ from MOOC.login import *
 
 def course_show(request, course_id):
 	course = Course.objects.get(pk=course_id)
+	username = request.user.username
+	user = UserInfo.objects.filter(username__exact=username)
+	if user:
+		courseforuser = user[0].CourseList.all().filter(pk = course.pk)
+	else:
+		onecourseforuser = UserInfo()
+		courseforuser = [onecourseforuser]
 	chapters = Chapter.objects.all()
-	return render(request, 'courseIntro.html', {'course': course, 'chapters': chapters})
+	return render(request, 'courseIntro.html', {'course': course, 'chapters': chapters, 'courseforuser': courseforuser})
 
 def course_in(request, course_id):
 	if not request.user.is_authenticated(): 
 		return HttpResponseRedirect('/login/')
 
+	params = request.POST if request.method == 'POST' else None
+	announcementform = AnnouncementForm(params)
+	if announcementform.is_valid():
+		announcement = announcementform.save(commit=False)
+		chapter = Chapter.objects.filter(pk = chapter_id)
+		announcement.FromChapter = chapter[0]
+		announcement.save()
+		announcementform = AnnouncementForm()
+
+	announcements = Announcement.objects.all()
+	announcement = announcements[len(announcements) - 1]
 
 	username = request.user.username
 	user = UserInfo.objects.filter(username__exact=username)
 	course = Course.objects.get(pk=course_id)
-	courseForUser = user[0].CourseList.all().filter(pk = course.pk)
-	if not courseForUser:
+	courseforuser = user[0].CourseList.all().filter(pk = course.pk)
+	if not courseforuser:
 		user[0].CourseList.add(course)
-	courseForUser = user[0].CourseList.all().filter(pk = course.pk)
+	courseforuser = user[0].CourseList.all().filter(pk = course.pk)
 
 	params = request.POST if request.method == 'POST' else None
 	chapterform = ChapterForm(params)
@@ -36,7 +54,7 @@ def course_in(request, course_id):
 		chapter.save()
 		chapterform = ChapterForm()
 	chapters = Chapter.objects.all()
-	return render(request, 'courseIn.html', {'course': course, 'chapters': chapters})
+	return render(request, 'courseIn.html', {'course': course, 'chapters': chapters, 'announcement': announcement, 'announcementform': announcementform})
 
 
 def chapter_list(request, course_id, chapter_id):
@@ -97,10 +115,21 @@ def chapter_list(request, course_id, chapter_id):
 		chapterform = ChapterForm()
 	chapters = Chapter.objects.all()
 
+	announcementform = AnnouncementForm(params)
+	if announcementform.is_valid():
+		announcement = announcementform.save(commit=False)
+		chapter = Chapter.objects.filter(pk = chapter_id)
+		announcement.FromChapter = chapter[0]
+		announcement.save()
+		announcementform = AnnouncementForm()
+
+	announcements = Announcement.objects.all()
+	announcement = announcements[len(announcements) - 1]
+
 	course = Course.objects.get(pk=course_id)
 	chapter = Chapter.objects.get(pk=chapter_id)
 
-	return render(request, 'courseIn.html', {'notes': notes, 'noteform' : noteform, 'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter})
+	return render(request, 'courseIn.html', {'notes': notes, 'noteform' : noteform, 'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'announcement': announcement, 'announcementform': announcementform})
 
 
 

@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^teachercourse/(?P<course_id>[0-9]+)/', include([
         url(r'^$', 'MOOC.teacherCourse.course_in'),
         url(r'^courseInfo/(?P<chapter_id>[0-9]+)/', 'MOOC.teacherCourse.chapter_list'),
-        url(r'^courseInfo/(?P<chapter_id>[0-9]+)/question/(?P<question_id>[0-9]+)/', 'MOOC.teacherCourse.question')
+        url(r'^courseInfoQuestion/(?P<chapter_id>[0-9]+)/question/(?P<question_id>[0-9]+)/', 'MOOC.teacherCourse.question')
     ])),
     url(r'^category/(?P<category_id>[0-9]+)/', 'MOOC.category.category'),
 ]

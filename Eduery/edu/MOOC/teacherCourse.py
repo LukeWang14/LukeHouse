@@ -10,7 +10,20 @@ from MOOC.login import *
 def course_in(request, course_id):
 	course = Course.objects.get(pk=course_id)
 	chapters = Chapter.objects.all()
-	return render(request, 'teacher_video.html', {'course': course, 'chapters': chapters})
+
+	params = request.POST if request.method == 'POST' else None
+	announcementform = AnnouncementForm(params)
+	if announcementform.is_valid():
+		announcement = announcementform.save(commit=False)
+		chapter = Chapter.objects.filter(pk = chapter_id)
+		announcement.FromChapter = chapter[0]
+		announcement.save()
+		announcementform = AnnouncementForm()
+
+	announcements = Announcement.objects.all()
+	announcement = announcements[len(announcements) - 1]
+
+	return render(request, 'teacher_video.html', {'course': course, 'chapters': chapters, 'announcement': announcement, 'announcementform': announcementform})
 
 
 def chapter_list(request, course_id, chapter_id):
@@ -60,10 +73,22 @@ def chapter_list(request, course_id, chapter_id):
 		chapterform = ChapterForm()
 	chapters = Chapter.objects.all()
 
+	announcementform = AnnouncementForm(params)
+	if announcementform.is_valid():
+		announcement = announcementform.save(commit=False)
+		chapter = Chapter.objects.filter(pk = chapter_id)
+		announcement.FromChapter = chapter[0]
+		announcement.save()
+		announcementform = AnnouncementForm()
+
+	announcements = Announcement.objects.all()
+	announcement = announcements[len(announcements) - 1]
+
+
 	course = Course.objects.get(pk=course_id)
 	chapter = Chapter.objects.get(pk=chapter_id)
 
-	return render(request, 'teacher_video.html', {'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter})
+	return render(request, 'teacher_video.html', {'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'announcementform': announcementform, 'announcement': announcement})
 
 
 
@@ -83,6 +108,7 @@ def question(request, course_id, chapter_id, question_id):
 		question.save()
 		questionform = QuestionForm()
 	questions = Question.objects.all()
+	question = Question.objects.get(pk = question_id)
 
 	answerform = AnswerForm(params)
 	if answerform.is_valid():
@@ -95,8 +121,7 @@ def question(request, course_id, chapter_id, question_id):
 		chapter = Chapter.objects.filter(pk = chapter_id)
 		answer.FromChapter = chapter[0]
 
-		question = Question.objects.filter(pk = question_id)
-		answer.ToQuestion = question[0]
+		answer.ToQuestion = question
 
 		answer.save()
 		answerform = AnswerForm()
@@ -116,7 +141,18 @@ def question(request, course_id, chapter_id, question_id):
 		chapterform = ChapterForm()
 	chapters = Chapter.objects.all()
 
+	announcementform = AnnouncementForm(params)
+	if announcementform.is_valid():
+		announcement = announcementform.save(commit=False)
+		chapter = Chapter.objects.filter(pk = chapter_id)
+		announcement.FromChapter = chapter[0]
+		announcement.save()
+		announcementform = AnnouncementForm()
+
+	announcements = Announcement.objects.all()
+	announcement = announcements[len(announcements) - 1]
+
 	course = Course.objects.get(pk=course_id)
 	chapter = Chapter.objects.get(pk=chapter_id)
 
-	return render(request, 'teacher_question.html', {'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'question': question})
+	return render(request, 'teacher_question.html', {'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'question': question, 'announcement': announcement, 'announcementform': announcementform})

@@ -10,6 +10,7 @@ admin.site.register(Category)
 admin.site.register(UserInfo)
 admin.site.register(Question)
 admin.site.register(Answer)
+admin.site.register(Announcement)
 
 class UserFormStudent(forms.Form):
     username = forms.CharField(label='用户名：',max_length=100)
