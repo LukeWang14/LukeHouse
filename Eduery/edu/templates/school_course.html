@@ -1,0 +1,240 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>school_course</title> 
+		
+		
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;
+				
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight:bold;
+				font-family: sans-serif;
+			}
+			.header_search{
+				height: 34px;
+				float: right;
+				margin: 10px 30px;
+				padding: 0 12px;
+				border: 1px solid grey;
+				border-radius: 100px;
+			}
+			.header_search input{
+				height: 32px;
+				font-size: 16px;
+				border: 0;		
+				
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.school{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 4.77% 0 4.77%;
+			}
+			.left_bar{
+				width: 20%;
+				float: left;
+				background-color: white;
+				border: 1px solid grey;
+				border-radius: 5px;
+			}
+			.school_pic{
+				width: 60%;
+				margin: 7% 20% 4% 20%;
+				border-radius: 100%;			
+			}
+			.school_name{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				text-align: center;
+				margin-bottom: 18px;
+			}
+			.school_action{
+				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				text-align: center;
+				line-height: 59px;
+				border-top: 1px solid grey;
+			}
+			.present_act{
+				background-color: #63318F;
+				color: white;
+			}
+			.right-bar{
+				width: 75%;
+				float: right;
+			}
+			.teacher_course_stat{
+				width: 100%;
+				margin: 2% 0 2% 0;
+			}
+			.teacher_course_title{
+				font: 24px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;				
+			}
+			.course_stat{				
+				margin: 2% 2% 2% 0;
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: grey;
+			}
+			.teacher_course{
+				float: left;
+				width: 27.4%;
+				height: 331px;				
+				background-color: white;
+				border: 0.5px grey solid;
+				border-radius: 3px;
+				padding: 15px;
+				margin: 0 18px 15px 0;
+			}
+			.course_pic{
+				width: 100%;
+				height: 50%;
+				border: 0.5px grey solid;
+			}
+			.course_name{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				padding: 10px;
+				text-align: center;
+			}
+			.course_button{
+				border-radius: 3px;
+				padding: 0 5px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;			
+				margin: 0 16% 12% 16%;				
+			}
+			.course_info{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "/static/img/eduery.JPG"/>
+			<div class = "header_name">FFF团烧烤教学</div>
+			{% if username != 'null' %}
+            <div class = "header_load">{{username}}</div>
+            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
+            {% else %}
+			<div class = "header_load"><a href = "/login/">登录</a></div>
+			<div class = "header_regist"><a href = "/register/">注册</a></div>
+            {% endif %}
+			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+		</div>	
+		<div class = "school">
+			<div class = "left_bar">
+				<image class = "school_pic" src = "eduery.JPG"></image>
+				<div class = "school_name">学校姓名</div>
+				<div class = "school_action">学生管理</div>
+				<div class = "school_action">教师管理</div>
+				<div class = "school_action present_act">课程管理</div>
+			</div>
+			<div class = "right-bar">
+				<div class = "teacher_course_title">所有课程</div>
+				<div class = "teacher_course_stat"> 
+					<a class = "course_stat">开课中</a>
+					<a class = "course_stat">即将开课</a>
+					<a class = "course_stat">已结课</a>
+				</div>
+				<div class = "teacher_course">
+					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+					<div class = "course_name">FFF团烧烤教学</div>
+					<div class = "course_button">已结课</div>
+					<div class = "course_info">学生提问： 0</div>
+					<div class = "course_info">选课人数： 1</div>
+					<div class = "course_info">开始时间： 1111-11-11</div>
+				</div>
+				<div class = "teacher_course">
+					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+					<div class = "course_name">FFF团烧烤教学</div>
+					<div class = "course_button">已结课</div>
+					<div class = "course_info">学生提问： 0</div>
+					<div class = "course_info">选课人数： 1</div>
+					<div class = "course_info">开始时间： 1111-11-11</div>
+				</div>
+				<div class = "teacher_course">
+					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
+					<div class = "course_name">FFF团烧烤教学</div>
+					<div class = "course_button">已结课</div>
+					<div class = "course_info">学生提问： 0</div>
+					<div class = "course_info">选课人数： 1</div>
+					<div class = "course_info">开始时间： 1111-11-11</div>
+				</div>
+			</div>
+		</div>
+	</body> 
+	<script type="text/javascript">
+	var class_button = document.getElementsByClassName("course_button");
+	for(var i = 0; i < class_button.length; i++){
+		if(class_button[i].innerText === "开课中"){
+			class_button[i].style.backgroundColor = "#63318F";
+			class_button[i].style.color = "white";
+			class_button[i].style.border = "1px solid #63318F";
+		}
+		if(class_button[i].innerText === "已结课"){
+			class_button[i].style.backgroundColor = "#e3e0e0";
+			class_button[i].style.color = "black";
+			class_button[i].style.border = "1px solid #e3e0e0";
+		}
+		if(class_button[i].innerText === "即将开课"){
+			class_button[i].style.backgroundColor = "#e3e0e0";
+			class_button[i].style.color = "black";
+			class_button[i].style.border = "1px solid #63318F";
+		}
+	}
+	var search_type = document.getElementsByClassName("course_stat");
+	var stat = ["开课中","即将开课","已结课"];
+	for(var i = 0; i < search_type.length; i++){
+		search_type[i].onclick = (function(i){
+			return function(){
+				var search_class = document.getElementsByClassName("teacher_course");			
+				for(var j = 0; j < search_class.length; j++){
+					if(search_class[j].getElementsByClassName("course_button")[0].innerText != stat[i])
+						search_class[j].style.display = "none";
+					else search_class[j].style.display = "block";									
+				}
+			}
+		})(i);
+	}		
+	var all_course = document.getElementsByClassName("teacher_course_title")[0];
+	all_course.onclick = function(){
+		var search_class = document.getElementsByClassName("teacher_course");			
+		for(var j = 0; j < search_class.length; j++){				
+			search_class[j].style.display = "block";
+		}	
+	};
+	var search_section = document.getElementsByClassName("teacher")[0];
+	search_section.style.height = document.body.scrollHeight - 50 + "px";	
+	</script> 
+</html>

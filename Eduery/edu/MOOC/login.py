@@ -18,8 +18,11 @@ def login(request):
             #获取表单用户密码
             username = ufl.cleaned_data['username']
             password = ufl.cleaned_data['password']
+            courses = Course.objects.all();
+            categories = Category.objects.all();
             #获取的表单数据与数据库进行比较
             user = UserInfo.objects.filter(username__exact=username,password__exact=password)
+            courseforuser = user[0].CourseList.all()
             #返回对应数据库内容的对象
             User = authenticate(username=username,password=password)
             #返回django自带的user
@@ -27,14 +30,15 @@ def login(request):
                 if User.is_active:
                       auth.login(request,User)
                 if user[0].Type == 'student':
-                    return render_to_response('homepage/homepage.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'studentnum':user[0].studentnum, 'Type':'student', 'selfintroduction':user[0].selfintroduction})
+                    return render_to_response('homepage/homepage.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'studentnum':user[0].studentnum, 'Type':'student', 'selfintroduction':user[0].selfintroduction, 'courses': courses, 'categories': categories, 'courseforuser':courseforuser})
                 elif user[0].Type == 'teacher':
-                    return render_to_response('homepage/homepageteacher.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'teachernum':user[0].teachernum, 'Type':'teacher', 'selfintroduction':user[0].selfintroduction})
+                    return render_to_response('homepage/homepageteacher.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'teachernum':user[0].teachernum, 'Type':'teacher', 'selfintroduction':user[0].selfintroduction, 'courseforuser': courseforuser})
                 elif user[0].Type == 'school':
                     return render_to_response('homepage/homepageschool.html',{'username':user[0].username, 'school':user[0].school, 'Type':'school'})
             else:
                 return HttpResponseRedirect('/login/')
     else:
         ufl = UserLogForm()
-    return render_to_response('registration/login.html',{'ufl':ufl})
+    courses = Course.objects.all()
+    return render_to_response('registration/login.html',{'ufl':ufl, 'courses':courses})
 

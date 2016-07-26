@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.utils.timezone
 
 
 class Migration(migrations.Migration):
@@ -13,67 +14,71 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Answer',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('AnswerContent', models.CharField(default='', max_length=1000)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('AnswerContent', models.CharField(max_length=1000, default='')),
+                ('CreatedAt', models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('name', models.CharField(default='', max_length=40)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('name', models.CharField(max_length=40, default='')),
             ],
         ),
         migrations.CreateModel(
             name='Chapter',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('ChapterNum', models.IntegerField()),
-                ('ChapterName', models.CharField(default='', max_length=40)),
+                ('ChapterName', models.CharField(max_length=40, default='')),
+                ('Introduction', models.CharField(max_length=100, default='')),
             ],
         ),
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('Name', models.CharField(default='', max_length=30)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('Name', models.CharField(max_length=30, default='')),
                 ('ValidOrNot', models.IntegerField()),
-                ('Introduction', models.CharField(max_length=500)),
+                ('Introduction', models.CharField(max_length=500, default='')),
             ],
         ),
         migrations.CreateModel(
             name='Note',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('Title', models.CharField(max_length=50)),
-                ('Content', models.CharField(default='', max_length=500)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('Title', models.CharField(max_length=50, default='')),
+                ('Content', models.CharField(max_length=500, default='')),
+                ('CreatedAt', models.DateTimeField(default=django.utils.timezone.now)),
                 ('FromChapter', models.ForeignKey(to='MOOC.Chapter')),
             ],
         ),
         migrations.CreateModel(
             name='Question',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('QuestionTitle', models.CharField(default='', max_length=50)),
-                ('QuestionContent', models.CharField(default='', max_length=500)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('QuestionTitle', models.CharField(max_length=50, default='')),
+                ('QuestionContent', models.CharField(max_length=500, default='')),
+                ('CreatedAt', models.DateTimeField(default=django.utils.timezone.now)),
                 ('FromChapter', models.ForeignKey(to='MOOC.Chapter')),
             ],
         ),
         migrations.CreateModel(
             name='UserInfo',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('username', models.CharField(default='', max_length=50)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('username', models.CharField(max_length=50, default='')),
                 ('password', models.CharField(max_length=50)),
                 ('email', models.EmailField(max_length=254)),
-                ('name', models.CharField(default='肖冬', max_length=50)),
-                ('school', models.CharField(default='清华大学', max_length=50)),
-                ('studentnum', models.CharField(default='2014013424', max_length=50)),
-                ('teachernum', models.CharField(default='2014013424', max_length=50)),
-                ('selfintroduction', models.CharField(default='这是我的个人简介', max_length=400)),
-                ('Type', models.CharField(default='student', max_length=50)),
-                ('StuProfession', models.CharField(default='softwareengineering', max_length=30)),
-                ('TeaProfession', models.CharField(default='softwareengineering', max_length=30)),
+                ('name', models.CharField(max_length=50, default='肖冬')),
+                ('school', models.CharField(max_length=50, default='清华大学')),
+                ('studentnum', models.CharField(max_length=50, default='2014013424')),
+                ('teachernum', models.CharField(max_length=50, default='2014013424')),
+                ('selfintroduction', models.CharField(max_length=400, default='这是我的个人简介')),
+                ('Type', models.CharField(max_length=50, default='student')),
+                ('StuProfession', models.CharField(max_length=30, default='softwareengineering')),
+                ('TeaProfession', models.CharField(max_length=30, default='softwareengineering')),
                 ('CourseList', models.ManyToManyField(to='MOOC.Course')),
                 ('StuList', models.ManyToManyField(to='MOOC.UserInfo')),
             ],
@@ -81,7 +86,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Video',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('VideoFile', models.FileField(upload_to='videos')),
                 ('FromChapter', models.ForeignKey(to='MOOC.Chapter')),
             ],
@@ -104,7 +109,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='course',
             name='Type',
-            field=models.ManyToManyField(to='MOOC.Category'),
+            field=models.ForeignKey(to='MOOC.Category'),
         ),
         migrations.AddField(
             model_name='chapter',

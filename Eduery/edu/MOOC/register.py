@@ -45,18 +45,16 @@ def registerstudent(request):
             userindjango.save()
             Userdjango = authenticate(username=username, password=password)
             auth.login(request, Userdjango)
-            return render_to_response('homepage/homepage.html',{'username':username, 'name':name, 'school':school, 'studentnum':studentnum, 'Type':'student', 'selfintroduction':selfintroduction})
+
+            courses = Course.objects.all()
+            categories = Category.objects.all()
+            courseforuser = user.CourseList.all()
+    
+            return render_to_response('homepage/homepage.html',{'username':username, 'name':name, 'school':school, 'studentnum':studentnum, 'Type':'student', 'selfintroduction':selfintroduction, 'courses' : courses, 'categories': categories, 'courseforuser': courseforuser})
             #返回注册成功页面
     else:
         uf = UserFormStudent()
     return render_to_response('registration/registerstudent.html',{'ufstu':uf})
-
-
-
-
-
-
-
 
 
 
@@ -150,7 +148,9 @@ def registerschool(request):
 
 
 def homepage(request):
-    return render(request, 'homepage/homepage.html', {'username':'null'})
+    courses = Course.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'homepage/homepage.html', {'username':'null', 'courses' : courses, 'categories': categories})
 
 
 

@@ -3,7 +3,7 @@
 <html> 
 	<head> 
 		<meta charset="gb2312">
-		<title>school_student</title> 
+		<title>school_teacher</title> 
 		
 		
 		<style type = "text/css"> 			
@@ -92,39 +92,69 @@
 				width: 70%;
 				float: right;
 			}
-			.student_control{
+			.teacher{
+				width: 26%;
+				height: 300px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
 				background-color: white;
-				width: 43%;
-				border: 1px solid grey;
-				border-radius: 5px;
+				margin-left: 20px;
+				margin-bottom: 20px;
+			}
+			.teacher_pic{
+				width: 80px;
+				height: 80px;
+				border-radius: 100%;
+				position: relative;				
+				left: 50%;
+				background-color: white;
+				padding: 10px;
+			}
+			.teacher_name{
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				line-height: 32px;
-				padding: 0 3% 0 3%;
+				background-color: #e3e0e0;
+				margin-top: -40px;
+				padding: 10px;
+			}
+			.teacher_job{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;	
+				color: grey;
+				padding: 0 10px 0 10px;
+			}
+			.teacher_info{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;
+				height: 180px;
+				padding: 10px;
+			}
+			.teacher_add{				
+				width: 31%;
+				height: 315px;
 				float: left;
+				margin-left: 20px;
 			}
-			.student_name{
-				margin-left: 3%;
+			#id_pic{
+				display: none;
 			}
-			.delete_button{
-				color: #63318F;
-				float: right;
-			}
-			.student_add{
-				background-color: #63318F;
-				color: white;
-				width: 43%;
-				border: 1px solid grey;
-				border-radius: 5px;
-				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				line-height: 32px;
-				padding: 0 3% 0 3%;
-				float: left;
-				text-align: center;
-			}
-			.new_num{
-				border: 1.5px solid grey;
-				border-radius: 5px;
+			.input_name{
+				border: 1.5px solid grey;	
 				height: 24px;
+				border-radius: 5px;
+				width: 50%;
+			}
+			.input_job{
+				border: 1.5px solid grey;	
+				border-radius: 5px;
+				width: 100%;
+			}
+			.input_info{
+				width: 100%;
+				height: 100%;
+				border: 1.5px solid grey;	
+				border-radius: 5px;
 			}
 			</style> 
 	</head> 
@@ -147,31 +177,44 @@
 			<div class = "left_bar">
 				<image class = "school_pic" src = "eduery.JPG"></image>
 				<div class = "school_name">学校姓名</div>
-				<div class = "school_action present_act">学生管理</div>
-				<div class = "school_action">教师管理</div>
+				<div class = "school_action">学生管理</div>
+				<div class = "school_action present_act">教师管理</div>
 				<div class = "school_action">课程管理</div>
 			</div>
 			<div class = "right_bar">
-				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>			
+				<div class = "teacher">
+					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
+					<div class = "teacher_name">FFF团团长</div>
+					<div class = "teacher_job">FFF团 团长</div>
+					<div class = "teacher_info">这人就是团长</div>
 				</div>
-				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>
+				<div class = "teacher">
+					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
+					<div class = "teacher_name">FFF团团长</div>
+					<div class = "teacher_job">FFF团 团长</div>
+					<div class = "teacher_info">这人就是团长</div>
 				</div>
-				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>
+				<div class = "teacher">
+					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
+					<div class = "teacher_name">FFF团团长</div>
+					<div class = "teacher_job">FFF团 团长</div>
+					<div class = "teacher_info">这人就是团长</div>
 				</div>
-				<div class = "student_add">添加</div>
-				<div class = "student_control">
-					<input type = "text" class = "new_num" placeholder = "请输入学号">
-					<a class = "student_name">未注册</a>
-					<a class = "delete_button">删除</a>
+				<image class = "teacher_add" src = "http://www.iconpng.com/png/windows8_icons2/plus_.png"></image>
+				<div class = "teacher">				
+					<label for = "id_pic">
+						<image class = "teacher_pic" src = "http://www.ld12.com/upimg358/20160130/14271152543633.jpg"></image>
+					</label>
+					<input type = "file" id = "id_pic">				
+					<div class = "teacher_name">
+						<input type = "text" class = "input_name" placeholder="请输入教师姓名(10字以内)" maxlength="10">
+					</div>
+					<div class = "teacher_job">
+						<input type = "text" class = "input_job" placeholder="请输入教师职位(50字以内)" maxlength="50">
+					</div>
+					<div class = "teacher_info">
+						<textarea class = "input_info" placeholder="请输入对课程的简要介绍"></textarea>
+					</div>
 				</div>
 			</div>
 		</div>

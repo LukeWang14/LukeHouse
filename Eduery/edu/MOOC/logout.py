@@ -11,6 +11,7 @@ from MOOC.admin import *
 #登出
 def logout(request):
     auth.logout(request)
-    return render_to_response('homepage/homepage.html',{'username':'null'})
+    courses = Course.objects.all()
+    return render_to_response('homepage/homepage.html',{'username':'null', 'courses': courses})
 
 

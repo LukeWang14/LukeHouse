@@ -2,7 +2,7 @@
 <html> 
 	<head> 
 		<meta charset="gb2312">
-		<title>teacher_video</title> 
+		<title>FFF团烧烤教学</title> 
 		
 		
 		<style type = "text/css"> 			
@@ -55,14 +55,68 @@
 				padding-right: 60px;	
 				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
 			}
-			.video{
+			.course{
 				height: 1400px;
 				background-color: #e3e0e0;
 				padding: 30px 59.5px 0 59.5px;
 			}
+			.course_detail{
+				background-color: white;
+				height: 430px;
+				border: 1px solid grey;
+				border-radius: 5px;	
+				margin-bottom: 20px;
+			}
+			.course_name{
+				font: 24px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.course_from{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
+			.course_media{
+				width : 45%;
+				height: 300px;
+				float: left;
+			}
+			.course_info_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 45%;
+				float: left;
+			}
+			.course_info_content{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 22.5%;
+				float: left;		
+			}
+			.course_info_button{
+				border-radius: 3px;
+				text-align: center;		
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				width : 45%;
+				float: left;
+				background-color: #63318F;
+				color: white;
+			}
+			.course_part_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F;
+			}
+			.course_intro{
+				width: 60%;
+				height: 200px;
+				float: left;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;
+				margin-bottom: 20px;
+			}			
+			.course_intro_content{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;		
+			}
 			.course_index{
-				width: 25%;
-				height: 400px;
+				width: 60%;
+				height: 200px;
 				float: left;
 				padding: 25px 15px 30px;
 				border: 1px solid grey;
@@ -73,7 +127,7 @@
 			.course_index_span_all{
 				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 				color: #63318F;
-				left: 23%;
+				right: 40%;
 				position: absolute;
 			}
 			.course_index_1{
@@ -87,69 +141,57 @@
 				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 				color: #63318F;			
 			}
-			.course_control{
-				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
-				color: #63318F;			
-			}
-			.teacher_action{
-				width: 100%;
-				margin-bottom: 20px;
-			}
-			.teacher_action_button{
-				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
-				margin: 0, 10px, 20px, 0;
-			}
-			.course_video{
-				width: 65%;
-				height: 400px;
+			.course_question{
+				width: 60%;
+				height: 200px;
+				float: left;
+				padding: 25px 15px 30px;
 				border: 1px solid grey;
-				float: right;
-			}
-			.course_note{
-				width: 31.5%;
-				height: 300px;
-				border: 1px solid grey;
-				float: right;		
+				border-radius: 5px;
 				background-color: white;
-				margin-top: 20px;
 			}
-			.course_note_content{
-				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1.5px solid black;
-			}
-			.course_note_add{
-				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				background-color: #e3e0e0;
-				width: 90px;
-				text-align: center;
-				float: right;
-			}
-			.question{
-				width: 65%;
-				height: 300px;
-				border: 1px solid grey;
-				float: right;		
-				background-color: white;
-				margin-top: 20px;
-				overflow: scroll;
-			}
-			.question_title{
-				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			.course_question_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 				color: #63318F;	
 			}
-			.question_ans{
-				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border-bottom: 1px solid grey;
+			.course_question_ans{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 			}
-			.question_add{
-				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				background-color: #e3e0e0;
-				width: 90px;
-				text-align: center;
+			.course_teacher{
+				width: 30%;
+				height: 300px;
 				float: right;
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;
+				margin-left: 20px;
 			}
-			
-			</style> 
+			.course_teacher_pic{
+				width: 80px;
+				height: 80px;
+				border-radius: 100%;
+				position: relative;				
+				left: 37%;
+				background-color: white;
+				padding: 10px;
+			}
+			.course_teacher_name{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				margin-top: -40px;
+			}
+			.course_teacher_job{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;	
+				color: grey;
+			}
+			.course_teacher_info{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				background-color: #e3e0e0;
+				height: 180px;				
+			}
+		</style> 
 	</head> 
 
 	<body> 
@@ -159,63 +201,59 @@
 			<div class = "header_load">登录</div>
 			<div class = "header_regist">注册|</div>
 			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
-		</div>	
-		<div class = "video">
-			<div class = "teacher_action">
-				<a class = "teacher_action_button">上传课件</a>
-				<a class = "teacher_action_button">发布公告</a>
-				<a class = "teacher_action_button">讨论</a>
+		</div>		
+		<div class = "course">
+			<div class = "course_detail">
+				<div class = "course_name">{{ course.Name }}</div>
+				<div class = "course_from">来自：{{course.InSchool}} | 分类：{{course.Type}}</div>
+				<image class = "course_media" src = "eduery.JPG"></image>
+				<div class = "course_info">
+					<div class = "course_info_title">课程信息</div>
+					<div class = "course_info_content">选课人数：1</div>
+					<div class = "course_info_content">课程进度：当前课程有几个章节</div>
+					<div class = "course_info_content">课程状态：无</div>
+					<div class = "course_info_content">课程学分：一生</div>
+					<div class = "course_info_button"><a href = "/course/{{ course.pk }}/courseInfo/">加入课程</a></div>
+				</div>
 			</div>
+			<div class = "course_intro">
+				<div class = "course_part_title">课程简介</div>
+				<div class = "course_intro_content">{{course.Introduction}}</div>
+			</div>
+			<div class = "course_teacher">
+				<div class = "course_part_title">授课教师</div>
+				<image class = "course_teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
+				<div class = "course_teacher_name">FFF团团长</div>
+				<div class = "course_teacher_job">FFF团 团长</div>
+				<div class = "course_teacher_info">这人就是团长</div>
+			</div>
+
 			<div class = "course_index">
 				<div class = "course_part_title">课程章节
 					<a class = "course_index_span_all">[全部展开]</a>
-				</div>				
-																	
+				</div>	
 				{%for chapter in chapters%}
 				{% if chapter.FromCourse.Name == course.Name %}			
 				<div class = "course_index_1">
-					<a href = "/teachercourse/{{course.pk}}/courseInfo/{{chapter.pk}}">
+					<a href = "/course/{{course.pk}}/courseInfo/{{chapter.pk}}">
 						{{ chapter.ChapterName }}</a>
 					<a class = "course_index_span">[展开]</a>
-					<div class = "course_index_2">{{chapter.Introduction}}</div>				
+					<div class = "course_index_2">chapter.Introduction</div>					
 				</div>		
 				{% endif %}
-				{% endfor %}		
-
+				{% endfor %}													
 			</div>
-			<video class = "course_video" src = ""></video>
 
-			<div class = "question">
-				{% for question in questions %}
-				{% if question.FromChapter.pk == chapter.pk %}
-
-				<div class = "question_title"><a href = "/teachercourse/{{course.pk}}/courseInfo/{{chapter.pk}}/question/{{question.pk}}">
-					{{question.FromStudent}}提问{{question.QuestionTitle}}
-				</a></div>
-
-				{% for answer in answers %}
-				{% if answer.ToQuestion == question %}
-				{% if answer.FromTeacher.username = request.user.username %}
-				<div class = "question_ans">我的回答：{{answer.AnswerContent}}</div>
-				{% endif %}
-				{% endif %}
-				{% endfor %}
-
-				<div class = "question_add">
-					<form method = "POST" class = "answer-form">{% csrf_token %}
-						{{ answerform.as_p }}
-						<button type = "submit" class = "save btn btn-default">
-							add answer
-						</button>
-					</form>
-				</div>
-
-				{% endif %}
-				{% endfor %}	
-
+			<div class = "course_question">
+				<div class = "course_part_title">常见问题</div>
+				<div class = "course_question_title">如何加入FFF团？</div>
+				<div class = "course_question_ans">只要敢于自称FFF团员，你便成为了FFF团一员。</div>
+				<div class = "course_question_title">还有问题吗？</div>
+				<div class = "course_question_ans">没了。</div>
 			</div>
 			
 		</div>
+		
 	</body> 
 	<script type="text/javascript">
 	var course_index_span_all = document.getElementsByClassName("course_index_span_all")[0];
@@ -267,3 +305,5 @@
 	}
 	</script> 
 </html>
+	
+	

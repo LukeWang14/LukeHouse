@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class UserInfo(models.Model):
@@ -19,25 +20,6 @@ class UserInfo(models.Model):
     def __str__(self):
     	return self.username
 
-class Course(models.Model):
-	Name = models.CharField(max_length = 30, default="")
-	InSchool = models.ForeignKey("UserInfo")
-	Type = models.ManyToManyField("Category")
-	#1表示尚未开始，2表示正在进行，3表示已经结束
-	ValidOrNot = models.IntegerField()
-	Introduction = models.CharField(max_length =500)
-	def __str__(self):
-		return self.Name
-
-
-class Chapter(models.Model):
-	FromCourse = models.ForeignKey("Course")
-	ChapterNum = models.IntegerField()
-	ChapterName = models.CharField(max_length = 40, default = "")
-	def __str__(self):
-		return str(self.ChapterNum) + self.ChapterName
-
-
 class Category(models.Model):
     name = models.CharField(max_length=40, default = "")
 
@@ -48,12 +30,34 @@ class Category(models.Model):
         return '/category/%u' % self.pk
 
 
+class Course(models.Model):
+	Name = models.CharField(max_length = 30, default="")
+	InSchool = models.ForeignKey("UserInfo")
+	Type = models.ForeignKey("Category")
+	#1表示尚未开始，2表示正在进行，3表示已经结束
+	ValidOrNot = models.IntegerField()
+	Introduction = models.CharField(max_length =500, default = "")
+	def __str__(self):
+		return self.Name
+
+
+class Chapter(models.Model):
+	FromCourse = models.ForeignKey("Course")
+	ChapterNum = models.IntegerField()
+	ChapterName = models.CharField(max_length = 40, default = "")
+	Introduction = models.CharField(max_length = 100, default = "")
+	def __str__(self):
+		return str(self.ChapterNum) + self.ChapterName
+
+
+
 class Note(models.Model):
 	FromStudent = models.ForeignKey("UserInfo")
 	FromChapter = models.ForeignKey("Chapter")
 	#有一个字符表示已经结束，待设定
-	Title = models.CharField(max_length = 50)
+	Title = models.CharField(max_length = 50, default = "")
 	Content = models.CharField(max_length = 500, default = "")
+	CreatedAt = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.Title
 
@@ -62,6 +66,7 @@ class Question(models.Model):
 	FromChapter = models.ForeignKey("Chapter")
 	QuestionTitle = models.CharField(max_length = 50, default = "")
 	QuestionContent = models.CharField(max_length = 500, default = "")
+	CreatedAt = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.QuestionTitle
 
@@ -71,6 +76,7 @@ class Answer(models.Model):
 	FromTeacher = models.ForeignKey("UserInfo")
 	FromChapter = models.ForeignKey("Chapter")
 	AnswerContent = models.CharField(max_length = 1000, default = "")
+	CreatedAt = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.ToQuestion.QuestionTitle
 

@@ -1,9 +1,9 @@
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+﻿<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!DOCTYPE html> 
 <html> 
 	<head> 
 		<meta charset="gb2312">
-		<title>school</title> 
+		<title>school_student</title> 
 		
 		
 		<style type = "text/css"> 			
@@ -59,40 +59,72 @@
 			.school{
 				height: 1400px;
 				background-color: #e3e0e0;
-				padding: 30px 59.5px 0 59.5px;
+				padding: 30px 4.77% 0 4.77%;
 			}
-			.school_info{
-				width: 25%;
-				height: 400px;
+			.left_bar{
+				width: 20%;
 				float: left;
-				padding: 25px 15px 30px;
+				background-color: white;
 				border: 1px solid grey;
 				border-radius: 5px;
-				background-color: white;	
-				margin-bottom: 20px;
 			}
-			.teacher_control{
-				width: 65%;
-				height: 150px;
-				border: 1px solid grey;
+			.school_pic{
+				width: 60%;
+				margin: 7% 20% 4% 20%;
+				border-radius: 100%;			
+			}
+			.school_name{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				text-align: center;
+				margin-bottom: 18px;
+			}
+			.school_action{
+				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				text-align: center;
+				line-height: 59px;
+				border-top: 1px solid grey;
+			}
+			.present_act{
+				background-color: #63318F;
+				color: white;
+			}
+			.right_bar{
+				width: 70%;
 				float: right;
-				background-color: white;	
-				margin-bottom: 20px;
 			}
 			.student_control{
-				width: 65%;
-				height: 150px;
+				background-color: white;
+				width: 43%;
 				border: 1px solid grey;
-				float: right;
-				background-color: white;	
-				margin-bottom: 20px;
+				border-radius: 5px;
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				line-height: 32px;
+				padding: 0 3% 0 3%;
+				float: left;
 			}
-			.course_control{
-				width: 65%;
-				height: 330px;
-				border: 1px solid grey;
+			.student_name{
+				margin-left: 3%;
+			}
+			.delete_button{
+				color: #63318F;
 				float: right;
-				background-color: white;	
+			}
+			.student_add{
+				background-color: #63318F;
+				color: white;
+				width: 43%;
+				border: 1px solid grey;
+				border-radius: 5px;
+				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				line-height: 32px;
+				padding: 0 3% 0 3%;
+				float: left;
+				text-align: center;
+			}
+			.new_num{
+				border: 1.5px solid grey;
+				border-radius: 5px;
+				height: 24px;
 			}
 			</style> 
 	</head> 
@@ -112,10 +144,36 @@
 			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
 		</div>	
 		<div class = "school">
-			<div class = "school_info">这是学校信息</div>
-			<div class = "teacher_control">这是教师信息</div>
-			<div class = "student_control">这是学生信息</div>
-			<div class = "course_control">这是课程信息</div>
+			<div class = "left_bar">
+				<image class = "school_pic" src = "eduery.JPG"></image>
+				<div class = "school_name">学校姓名</div>
+				<div class = "school_action present_act">学生管理</div>
+				<div class = "school_action">教师管理</div>
+				<div class = "school_action">课程管理</div>
+			</div>
+			<div class = "right_bar">
+				<div class = "student_control">
+					<a class = "student_num">20140134xx</a>
+					<a class = "student_name">XX</a>
+					<a class = "delete_button">删除</a>			
+				</div>
+				<div class = "student_control">
+					<a class = "student_num">20140134xx</a>
+					<a class = "student_name">XX</a>
+					<a class = "delete_button">删除</a>
+				</div>
+				<div class = "student_control">
+					<a class = "student_num">20140134xx</a>
+					<a class = "student_name">XX</a>
+					<a class = "delete_button">删除</a>
+				</div>
+				<div class = "student_add">添加</div>
+				<div class = "student_control">
+					<input type = "text" class = "new_num" placeholder = "请输入学号">
+					<a class = "student_name">未注册</a>
+					<a class = "delete_button">删除</a>
+				</div>
+			</div>
 		</div>
 	</body> 
 	<script type="text/javascript">

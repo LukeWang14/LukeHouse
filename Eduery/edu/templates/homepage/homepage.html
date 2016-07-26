@@ -141,24 +141,33 @@
 		<div class = "search_section">
 			<div class = "search_type_1">
 				<div class = "type">分类</div>
-				<div class = "type_name">全部 2</div>
-				<div class = "type_name">计算机 1</div>
-				<div class = "type_name">经济学 0</div>
-				<div class = "type_name">法学 0</div>
-				<div class = "type_name">教育学 0</div>
-				<div class = "type_name">文学 0</div>
-				<div class = "type_name">历史学 0</div>
-				<div class = "type_name">理学 0</div>
-				<div class = "type_name">工学 0</div>
-				<div class = "type_name">医学 0</div>
-				<div class = "type_name">其实我也不知道这到底是什么反正是为了凑字数实验长度学 1</div>
+				<div class = "type_name"><a href = "/">
+					全部{{courses|length}}
+				</a></div>
+				{% regroup courses by Type.pk as typeCourse_list %}
+				{% for category in categories %}
+				{% for typeCourse in typeCourse_list %}
+				{% if typeCourse.grouper == category.pk %}
+				<div class = "type_name"><a href = "/category/{{category.pk}}">
+					{{category.name}}{{typeCourse.list|length}}
+				</a></div>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
 			</div>
 			<div class = "search_type_2">
-				<div class = "type">状态</div>
-				<div class = "type_name">全部 2</div>
-				<div class = "type_name">开课中 1</div>
-				<div class = "type_name">即将开课 0</div>
-				<div class = "type_name">已结课 1</div>
+				<div class = "type">已加入课程</div>
+				{% if courseforuser|length != 0 %}
+				<div class = "type_name">已加入{{courseforuser|length}}门课程</div>
+				{% for course in courseforuser %}
+				<div class = "type_name"><a href = "/course/{{course.pk}}">
+					{{course.Name}}
+				</a></div>
+				{% endfor %}
+				{% else %}
+				<div class = "type_name">您尚未加入任何课程！</div>
+				{% endif %}
+
 			</div>
 			<div class = "search_class t1">
 				<image class = "class_pic" src = "eduery.JPG"></image>
@@ -167,35 +176,51 @@
 				<div class = "class_info">选课人数： 3</div>
 				<div class = "class_info">开始时间： 2016-07-17</div>
 			</div>
-			<div class = "search_class t10">
-				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-				<div class = "class_name">FFF团烧烤教学</div>
-				<div class = "class_button">已结课</div>
-				<div class = "class_info">选课人数： 1</div>
-				<div class = "class_info">开始时间： 1111-11-11</div>
-			</div>
 
+			{% if category %}
+
+			{% for course in courses %}
+			{% if category.pk == course.Type.pk %}
 			<div class = "search_class t10">
 				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-				<div class = "class_name">FFF团烧烤教学</div>
+				<div class = "class_name"><a href = "/course/{{ course.pk }}">{{ course.Name}}</a></div>
+				{% if course.ValidOrNot == 1 %}
+				<div class = "class_button">待开课</div>
+				{% endif %}
+				{% if course.ValidOrNot == 2 %}
+				<div class = "class_button">开课中</div>
+				{% endif %}
+				{% if course.ValidOrNot == 3 %}
 				<div class = "class_button">已结课</div>
+				{% endif %}
 				<div class = "class_info">选课人数： 1</div>
-				<div class = "class_info">开始时间： 1111-11-11</div>
+				<div class = "class_info">开课学校： {{course.InSchool}}</div>
 			</div>
+			{% endif %}
+			{% endfor %}
+
+			{% else %}
+
+			{% for course in courses %}
 			<div class = "search_class t10">
 				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-				<div class = "class_name"><a href = "/video/">超链接</a></div>
+				<div class = "class_name"><a href = "/course/{{ course.pk }}">{{ course.Name}}</a></div>
+				{% if course.ValidOrNot == 1%}
+				<div class = "class_button">待开课</div>
+				{% endif %}
+				{% if course.ValidOrNot == 2%}
+				<div class = "class_button">开课中</div>
+				{% endif %}
+				{% if course.ValidOrNot == 3%}
 				<div class = "class_button">已结课</div>
+				{% endif %}
 				<div class = "class_info">选课人数： 1</div>
-				<div class = "class_info">开始时间： 1111-11-11</div>
+				<div class = "class_info">开课学校： {{course.InSchool}}</div>
 			</div>
-			<div class = "search_class t10">
-				<image class = "class_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-				<div class = "class_name">FFF团烧烤教学</div>
-				<div class = "class_button">已结课</div>
-				<div class = "class_info">选课人数： 1</div>
-				<div class = "class_info">开始时间： 1111-11-11</div>
-			</div>
+			{% endfor%}
+
+			{% endif %}
+			
 		</div>
 		
 	</body> 

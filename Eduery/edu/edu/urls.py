@@ -29,5 +29,15 @@ urlpatterns = [
     url(r'^logout/', 'MOOC.logout.logout'), #登出
     url(r'^changepassword/', 'MOOC.changepassword.changepassword'), #修改密码
     url(r'^changeselfinformation/', 'MOOC.changeselfinformation.changeselfinformation'), #修改个人信息
-    url(r'^video/', 'MOOC.notes.note_list'),
+    url(r'^course/(?P<course_id>[0-9]+)/', include([
+        url(r'^$', 'MOOC.notes.course_show'),
+        url(r'^courseInfo/$', 'MOOC.notes.course_in'),
+        url(r'^courseInfo/(?P<chapter_id>[0-9]+)/', 'MOOC.notes.chapter_list')
+    ])),
+    url(r'^teachercourse/(?P<course_id>[0-9]+)/', include([
+        url(r'^$', 'MOOC.teacherCourse.course_in'),
+        url(r'^courseInfo/(?P<chapter_id>[0-9]+)/', 'MOOC.teacherCourse.chapter_list'),
+        url(r'^courseInfo/(?P<chapter_id>[0-9]+)/question/(?P<question_id>[0-9]+)/', 'MOOC.teacherCourse.question')
+    ])),
+    url(r'^category/(?P<category_id>[0-9]+)/', 'MOOC.category.category'),
 ]

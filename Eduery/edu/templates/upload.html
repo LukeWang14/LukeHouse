@@ -1,0 +1,233 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="gb2312">
+		<title>upload</title> 
+			
+		<style type = "text/css"> 			
+			.header{
+				height: 65px;	
+				width: 100%;			
+			}
+			.header_log{
+				height: 65px;
+				float: left;
+				padding-left: 60px;
+			}
+			.header_name{
+				height: 65px;
+				float: left;
+				font-size: 24px;
+				line-height: 55px;
+				font-weight: bold;
+				color: grey;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_regist{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight: bold;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.header_load{
+				height: 65px;
+				float: right;
+				font-size: 16px;
+				line-height: 55px;
+				font-weight:bold;	
+				padding-right: 60px;	
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
+			}
+			.add_course{
+				height: 1400px;
+				background-color: #e3e0e0;
+				padding: 30px 4.77% 0 4.77%;
+			}
+			.left_bar{
+				width: 27%;
+				float: left;
+			}
+			.course_info{
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+				width: 100%;
+			}
+			.section_title{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;			
+			}
+			.course_info_type{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				height: 24px;
+				padding-top: 10px;
+			}
+			.input_text{
+				border: 1.5px solid grey;	
+				height: 24px;
+				border-radius: 5px;
+				float: right;
+				width: 70%;
+			}
+			.input_intro{
+				border: 1.5px solid grey;	
+				height: 24px;
+				border-radius: 5px;
+				width: 100%;
+				height: 200px;		
+				margin-top: 10px;
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				
+			}
+			.course_video{
+				padding: 25px 15px 30px;
+				border: 1px solid grey;
+				border-radius: 5px;
+				background-color: white;	
+				margin-bottom: 20px;
+				width: 60%;
+				float: right;
+			}
+			.course_index_1{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;					
+			}
+			.course_index_2{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				padding-top: 10px;
+			}
+			.course_upload{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
+				color: #63318F;			
+			}
+			.class_video{
+				display: none;
+			}
+			.input_index{
+				border: 1.5px solid grey;	
+				height: 20px;
+				border-radius: 5px;
+				width: 40%;
+			}
+			</style> 
+	</head> 
+
+	<body> 
+		<div class = "header">
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">Eduery|添加课程</div>
+			<div class = "header_load">返回首页</div>
+			<div class = "header_regist">我的主页|</div>
+		</div>	
+		<div class = "add_course">
+			<div class = "course_video">
+				<div class = "section_title">课程章节</div>
+					<div class = "course_index_2">1
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video1">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video1">						
+					</div>
+					<div class = "course_index_2">2
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video2">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video2">						
+					</div>
+					<div class = "course_index_2">3
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video3">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video3">						
+					</div>
+					<div class = "course_index_2">4
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video4">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video4">						
+					</div>
+					<div class = "course_index_2">5
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video5">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video5">						
+					</div>
+					<div class = "course_index_2">6
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video6">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video6">						
+					</div>
+					<div class = "course_index_2">7
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video7">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video7">						
+					</div>
+					<div class = "course_index_2">8
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video8">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video8">						
+					</div>
+					<div class = "course_index_2">9
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video9">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video9">						
+					</div>
+					<div class = "course_index_2">10
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video10">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video10">						
+					</div>
+					<div class = "course_index_2">11
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video11">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video11">						
+					</div>
+					<div class = "course_index_2">12
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video12">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video12">						
+					</div>
+					<div class = "course_index_2">13
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video13">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video13">						
+					</div>
+					<div class = "course_index_2">14
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video14">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video14">						
+					</div>
+					<div class = "course_index_2">15
+						<input type="text" class = "input_index" placeholder="请输入章节名称(50字以内)" maxlength="50">
+						<label class = "course_upload" for = "id_video15">[上传视频]</label>
+						<input type="file" accept="video/*" class = "class_video" id = "id_video15">						
+					</div>
+			</div>
+			<div class = "left_bar">
+				<div class = "course_info">
+					<div class = "section_title">课程信息</div>
+					<div class = "course_info_type">课程名称：
+						<input type="text" class = "input_text" placeholder="请输入课程名称(50字以内)" maxlength="50">
+					</div>
+					<div class = "course_info_type">课程分类：
+						<input type="text" class = "input_text" placeholder="请输入课程分类(只能输入已有类别)" maxlength="50">
+					</div>
+						<div class = "course_info_type">授课教师：
+						<input type="text" class = "input_text" placeholder="请输入授课教师" maxlength="50">
+					</div>
+					<div class = "course_info_type">开课时间：
+						<input type="text" class = "input_text" placeholder="请输入开课时间y-m-d" maxlength="50">
+					</div>
+					<div class = "course_info_type">结课时间：
+						<input type="text" class = "input_text" placeholder="请输入结课时间y-m-d" maxlength="50">
+					</div>				
+				</div>
+				<div class = "course_info">
+					<div class = "section_title">课程简介</div>
+					<textarea class = "input_intro" placeholder="请输入对课程的简要介绍"></textarea>
+				</div>
+			</div>
+		</div>
+	</body> 
+	<script type="text/javascript">
+	
+	</script> 
+</html>
