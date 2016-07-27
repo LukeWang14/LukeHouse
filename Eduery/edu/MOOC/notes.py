@@ -160,6 +160,3 @@ def chapter_list(request, course_id, chapter_id):
 	chapter = Chapter.objects.get(pk=chapter_id)
 
 	return render(request, 'courseIn.html', {'notes': notes, 'noteform' : noteform, 'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'announcement': announcement, 'announcementform': announcementform})
-
-
-

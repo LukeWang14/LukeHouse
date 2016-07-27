@@ -42,6 +42,16 @@ urlpatterns = [
     ])),
     url(r'^category/(?P<category_id>[0-9]+)/', 'MOOC.category.category'),
     url(r'^schoolcourses/', 'MOOC.schoolinfo.schoolcourse'),
+    url(r'^schoolstudents/', 'MOOC.schoolinfo.schoolstudent'),
+    url(r'^schoolteachers/', 'MOOC.schoolinfo.schoolteacher'),
+    url(r'^schoolstudent/(?P<student_id>[0-9]+)/', include([
+        url(r'^$', 'MOOC.schoolinfo.student_show'),
+        url(r'^delete/$', 'MOOC.schoolinfo.student_delete'),
+    ])),
+    url(r'^schoolteacher/(?P<teacher_id>[0-9]+)/', include([
+        url(r'^$', 'MOOC.schoolinfo.teacher_show'),
+        url(r'^delete/$', 'MOOC.schoolinfo.teacher_delete'),
+    ])),
     url(r'^schoolcourse/(?P<course_id>[0-9]+)/', include([
         url(r'^$', 'MOOC.schoolCourse.course_show'),
         url(r'^delete/$', 'MOOC.schoolCourse.course_delete'),

@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+ï»¿<!DOCTYPE html> 
 <html> 
 	<head> 
 		<meta charset="gb2312">
@@ -22,7 +22,7 @@
 				line-height: 55px;
 				font-weight: bold;
 				color: grey;
-				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", ËÎÌå;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", å®‹ä½“;
 			}
 			.header_regist{
 				height: 65px;
@@ -30,7 +30,7 @@
 				font-size: 16px;
 				line-height: 55px;
 				font-weight: bold;
-				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", ËÎÌå;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", å®‹ä½“;
 			}
 			.header_load{
 				height: 65px;
@@ -39,7 +39,7 @@
 				line-height: 55px;
 				font-weight:bold;	
 				padding-right: 60px;	
-				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", ËÎÌå;
+				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", å®‹ä½“;
 			}
 			.student{
 				background-color: #e3e0e0;
@@ -125,72 +125,62 @@
 	<body> 
 		<div class = "header">
 			<image class = "header_log" src = "eduery.JPG"></image>
-			<div class = "header_name">Eduery|¸öÈËÖ÷Ò³</div>
-			<div class = "header_load">·µ»ØÊ×Ò³</div>
-			<div class = "header_regist">ÎÒµÄÖ÷Ò³|</div>
+			<div class = "header_name">Eduery|{{student.username}}çš„ä¸ªäººä¸»é¡µ</div>
+			<div class = "header_load"><a href = "/logout/">ç™»å‡º</a></div>
+			<div class = "header_regist"><a href = "/schoolstudents/">è¿”å›å­¦ç”Ÿåˆ—è¡¨|</a></div>
 		</div>	
 		<div class = "student">
 			<div class = "left_bar">
-				<image class = "student_pic" src = "eduery.JPG"></image>
-				<div class = "student_name">Ñ§ÉúĞÕÃû</div>
-				<div class = "student_intro">×Ô¼ºµÄ¼ò¶Ì½éÉÜ</div>
-				<div class = "student_school">Ñ§ÉúÑ§Ğ£</div>		
+				<image class = "student_pic" src = "/static/img/eduery.JPG"></image>
+				<div class = "student_name">{{student.name}}</div>
+				<div class = "student_intro">{{student.StuProfession}}</div>
+				<div class = "student_school">{{student.selfintroduction}}</div>	
+				<div class = "student_school">{{student.email}}</div>	
 			</div>
 			<div class = "right-bar">
-				<div class = "student_course_title">ÎÒµÄ¿Î³Ì</div>
+				<div class = "student_course_title">{{student.username}}çš„è¯¾ç¨‹</div>
 				<div class = "student_course_stat"> 
-					<a class = "course_stat">¿ª¿ÎÖĞ</a>
-					<a class = "course_stat">¼´½«¿ª¿Î</a>
-					<a class = "course_stat">ÒÑ½á¿Î</a>
+					<a class = "course_stat">å¼€è¯¾ä¸­</a>
+					<a class = "course_stat">å³å°†å¼€è¯¾</a>
+					<a class = "course_stat">å·²ç»“è¯¾</a>
 				</div>
+				
+				è¯¥ç”Ÿå…±é€‰ä¿®äº†{{studentcoursecount}}é—¨è¯¾
+				{% for course in studentcourse %}
 				<div class = "student_course">
 					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFFÍÅÉÕ¿¾½ÌÑ§</div>
-					<div class = "course_button">ÒÑ½á¿Î</div>
-					<div class = "course_info">×îĞÂ¹«¸æ£º0</div>
-					<div class = "course_info">Ñ¡¿ÎÈËÊı£º 1</div>
-					<div class = "course_info">¿ªÊ¼Ê±¼ä£º 1111-11-11</div>
+					<div class = "course_name">{{course.Name}}</div>
+					<div class = "course_button">å·²ç»“è¯¾</div>
+					<div class = "course_info">é€‰è¯¾äººæ•°ï¼š 1</div>
+					<div class = "course_info">å¼€å§‹æ—¶é—´ï¼š 1111-11-11</div>
 				</div>
-				<div class = "student_course">
-					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFFÍÅÉÕ¿¾½ÌÑ§</div>
-					<div class = "course_button">ÒÑ½á¿Î</div>
-					<div class = "course_info">×îĞÂ¹«¸æ£º0</div>
-					<div class = "course_info">Ñ¡¿ÎÈËÊı£º 1</div>
-					<div class = "course_info">¿ªÊ¼Ê±¼ä£º 1111-11-11</div>
-				</div>
-				<div class = "student_course">
-					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFFÍÅÉÕ¿¾½ÌÑ§</div>
-					<div class = "course_button">ÒÑ½á¿Î</div>
-					<div class = "course_info">×îĞÂ¹«¸æ£º0</div>
-					<div class = "course_info">Ñ¡¿ÎÈËÊı£º 1</div>
-					<div class = "course_info">¿ªÊ¼Ê±¼ä£º 1111-11-11</div>
-				</div>
+				{% endfor %}
+				<a href = "/schoolstudent/{{student.pk}}/delete/">åˆ é™¤è¯¥ç”Ÿ</a>
+
 			</div>
 		</div>
 	</body> 
 	<script type="text/javascript">
 	var class_button = document.getElementsByClassName("course_button");
 	for(var i = 0; i < class_button.length; i++){
-		if(class_button[i].innerText === "¿ª¿ÎÖĞ"){
+		if(class_button[i].innerText === "å¼€è¯¾ä¸­"){
 			class_button[i].style.backgroundColor = "#63318F";
 			class_button[i].style.color = "white";
 			class_button[i].style.border = "1px solid #63318F";
 		}
-		if(class_button[i].innerText === "ÒÑ½á¿Î"){
+		if(class_button[i].innerText === "å·²ç»“è¯¾"){
 			class_button[i].style.backgroundColor = "#e3e0e0";
 			class_button[i].style.color = "black";
 			class_button[i].style.border = "1px solid #e3e0e0";
 		}
-		if(class_button[i].innerText === "¼´½«¿ª¿Î"){
+		if(class_button[i].innerText === "å³å°†å¼€è¯¾"){
 			class_button[i].style.backgroundColor = "#e3e0e0";
 			class_button[i].style.color = "black";
 			class_button[i].style.border = "1px solid #63318F";
 		}
 	}
 	var search_type = document.getElementsByClassName("course_stat");
-	var stat = ["¿ª¿ÎÖĞ","¼´½«¿ª¿Î","ÒÑ½á¿Î"];
+	var stat = ["å¼€è¯¾ä¸­","å³å°†å¼€è¯¾","å·²ç»“è¯¾"];
 	for(var i = 0; i < search_type.length; i++){
 		search_type[i].onclick = (function(i){
 			return function(){

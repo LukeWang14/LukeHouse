@@ -56,10 +56,15 @@
 				font-family: "Helvetica Neue", tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", 宋体;
 			}
 			.announcement{
-				width: 65%;
-				height: 100px;
-				border: 1px solid grey;
+				width: 59%;
+				height: 60px;
 				float: right;
+				color: #63318F;
+				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				margin-right: 4.51%;
+				margin-top: 1%;
+				text-align: center;
+				line-height: 60px;
 			}
 			.video{
 				height: 1400px;
@@ -84,6 +89,9 @@
 			}
 			.course_index_1{
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;					
+			}
+			.course_index_1 a{
+				text-decoration: none;
 			}
 			.course_index_2{
 				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
@@ -119,13 +127,14 @@
 			.course_note_content{
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
 				border: 1.5px solid black;
+				margin-bottom: 10px;
 			}
 			.course_note_add{
 				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
 				background-color: #e3e0e0;
 				width: 90px;
 				text-align: center;
-				float: right;
+				width: 100%;
 			}
 			.student_question{
 				width: 31.5%;
@@ -151,6 +160,7 @@
 				width: 90px;
 				text-align: center;
 				float: right;
+				width: 100%;
 			}
 			.class_test{
 				width: 65%;
@@ -159,6 +169,35 @@
 				float: right;
 				background-color: white;
 				margin-top: 20px;
+			}
+			.note_title{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F;	
+				text-align: center;
+			}
+			.note_content{		
+				display: none;
+			}
+			.note_time{
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: grey;	
+				text-align: right;
+			}
+			.question-form{
+				border: 1px solid grey;
+				border-radius: 4px;
+				background-color: white;
+			}
+			.note-form{
+				border: 1px solid grey;
+				border-radius: 4px;
+				background-color: white;
+			}
+			.btn{
+				float: right;
+				background-color: #63318F;	
+				color: white;
+				border-radius: 4px;
 			}
 			</style> 
 	</head> 
@@ -217,11 +256,16 @@
 					{{ question.FromStudent }}
 						提问
 					{{ question.QuestionTitle }}
+						问题内容为
+					{{question.QuestionContent}}
+						于
+					{{question.CreatedAt}}
 				</div>
 				<div class = "student_question_ans">
 					{% for answer in answers %}
 					{% if answer.ToQuestion == question %}
 					{{ answer.FromTeacher }} 回答 {{ answer.AnswerContent }}</br>
+					于{{answer.CreatedAt}}</br>
 					{% endif %}
 					{% endfor %}
 				</div>
@@ -243,9 +287,11 @@
 				{% if note.FromStudent.username == request.user.username %}
 				{% if note.FromChapter.pk == chapter.pk %}
 					<div class = "course_note_content">
-						{{ note.FromStudent }}
-						添加笔记
-						{{ note.Title }}
+	<!>					<a class = "note_title">{{ note.Title }}</a>
+						<div class = "note_content">
+						{{note.Content}}</div>
+						<div class = "note_time">
+						{{note.CreatedAt}}</div>	<!>	
 					</div>
 				{% endif %}
 				{% endif %}
@@ -312,6 +358,22 @@
 					course_index_span[i].innerText = "[展开]";
 					course_index_span_all.innerText = "[全部展开]";
 				}	
+			}				
+		})(i);
+	}
+	//!
+	var note_title = document.getElementsByClassName("note_title");
+	for(var i = 0; i < note_title.length; i++){
+		note_title[i].onclick = (function(i){
+			return function(){
+				var note_content = document.getElementsByClassName("note_content")[i];
+				console.log(note_content.style.display);
+				if(note_content.style.display === "block"){
+					note_content.style.display = "none";
+				}
+				else{					
+					note_content.style.display = "block";
+				}					
 			}				
 		})(i);
 	}

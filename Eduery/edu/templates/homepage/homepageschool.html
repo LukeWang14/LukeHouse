@@ -141,7 +141,7 @@
 			<div class = "header_load"><a href = "/login/">登录</a></div>
 			<div class = "header_regist"><a href = "/register/">注册</a></div>
             {% endif %}
-			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+			<div class = "header_search"><input type = "search" placeholder = "用户名，真实姓名……"/></div>	
 		</div>	
 		<div class = "school">
 			<div class = "left_bar">
@@ -150,35 +150,29 @@
 				<div class = "school_action present_act">
 					学生管理
 				</div>
-				<div class = "school_action">
+				<div class = "school_action"><a href = "/schoolteachers/">
 					教师管理
-				</div>
+				</a></div>
 				<div class = "school_action"><a href = "/schoolcourses/">
 					课程管理
 				</a></div>
 			</div>
 			<div class = "right_bar">
-				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>			
+				<div class = "student_num">
+					共有{{studentinschoolcount}}个学生
 				</div>
+				
+				{% for student in studentinschool %}
 				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>
+					<a class = "student_name">用户名：{{student.username}}</a></br>
+					<a class = "student_num">真实姓名：{{student.studentnum}}</a></br>
+					<a class = "student_name">学号：{{student.name}}</a></br>
+					<a class = "delete_button" href = "/schoolstudent/{{student.pk}}">查看</a>
 				</div>
-				<div class = "student_control">
-					<a class = "student_num">20140134xx</a>
-					<a class = "student_name">XX</a>
-					<a class = "delete_button">删除</a>
-				</div>
-				<div class = "student_add">添加</div>
-				<div class = "student_control">
-					<input type = "text" class = "new_num" placeholder = "请输入学号">
-					<a class = "student_name">未注册</a>
-					<a class = "delete_button">删除</a>
-				</div>
+				{% endfor %}
+				
+				
+				
 			</div>
 		</div>
 	</body> 

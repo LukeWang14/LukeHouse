@@ -129,27 +129,18 @@
 
 	<body> 
 		<div class = "header">
-			<image class = "header_log" src = "/static/img/eduery.JPG"/>
-			<div class = "header_name">EDUERY</div>
-            {% if username != 'null' %}
-            <div class = "header_load">{{username}}</div>
-            <div class = "header_regist"><a href = "/logout/">登出</a></div>
-            <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
-            <div class = "header_changeimfo"><a href = "/changeselfinformation/">修改个人信息</a></div>
-            <div class = "header_selfintro">{{selfintroduction}}</div>
-            {% else %}
-			<div class = "header_load"><a href = "/login/">登录</a></div>
-			<div class = "header_regist"><a href = "/register/">注册</a></div>
-            {% endif %}
-		</div>	
+			<image class = "header_log" src = "eduery.JPG"></image>
+			<div class = "header_name">Eduery|{{teacher.username}}的个人主页</div>
+			<div class = "header_load"><a href = "/logout/">登出</a></div>
+			<div class = "header_regist"><a href = "/schoolteachers/">返回教师列表|</a></div>
+		</div>
 		<div class = "teacher">
 			<div class = "left_bar">
 				<image class = "teacher_pic" src = "/static/img/eduery.JPG"></image>
-				<div class = "teacher_name">{{usename}}</div>
-				<div class = "teacher_school">{{school}}</div>
-				<div class = "teacher_job">{{teaprofession}}</div>
-				<div class = "teacher_intro">{{selfintroduction}}</div>
-						
+				<div class = "teacher_name">{{teacher.name}}</div>
+				<div class = "teacher_school">{{teacher.TeaProfession}}</div>
+				<div class = "teacher_intro">{{teacher.selfintroduction}}</div>
+				<div class = "teacher_job">{{teacher.email}}</div>			
 			</div>
 			<div class = "right-bar">
 				<div class = "teacher_course_title">我的课程</div>
@@ -158,12 +149,13 @@
 					<a class = "course_stat">即将开课</a>
 					<a class = "course_stat">已结课</a>
 				</div>
-				{% for course in courseforuser%}
+				该教师共参与{{teachercoursecount}}门课的教学
+				{% for course in teachercourse %}
 				<div class = "teacher_course">
 					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name"><a href = "/teachercourse/{{course.pk}}">
+					<div class = "course_name">
 						{{course.Name}}
-					</a></div>
+					</div>
 					{% if course.ValidOrNot == 1 %}
 					<div class = "course_button">待开课</div>
 					{% endif %}
@@ -177,6 +169,7 @@
 					<div class = "course_info">选课人数： 1</div>
 				</div>
 				{% endfor %}
+				<a href = "/schoolteacher/{{teacher.pk}}/delete/">删除该教师</a>
 				
 			</div>
 		</div>

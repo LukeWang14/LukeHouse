@@ -138,8 +138,12 @@ def registerschool(request):
             userindjango.save()
             Userdjango = authenticate(username=username, password=password)
             auth.login(request, Userdjango)
+
+            studentinschool = UserInfo.objects.filter(school__exact=username).filter(Type__exact = student)
+            studentinschoolcount = studentinschool.count()
+
             #返回注册成功页面
-            return render_to_response('homepage/homepageschool.html',{'username':username, 'school':school, 'Type':'school'})
+            return render_to_response('homepage/homepageschool.html',{'username':username, 'school':school, 'Type':'school', 'studentinschool': studentinschool, 'studentinschoolcount': studentinschoolcount})
     else:
         uf = UserFormSchool()
     return render_to_response('registration/registerschool.html',{'ufsch':uf})

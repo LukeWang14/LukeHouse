@@ -144,21 +144,27 @@
 			<div class = "header_name">FFF团烧烤教学</div>
 			{% if request.user.username != 'null' %}
             <div class = "header_load">{{request.user.username}}</div>
-            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            <div class = "header_regist"><a href = "/logout/">登出|</a></div>
             <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
             {% else %}
 			<div class = "header_load"><a href = "/login/">登录</a></div>
 			<div class = "header_regist"><a href = "/register/">注册</a></div>
             {% endif %}
-			<div class = "header_search"><input type = "search" placeholder = "课程、学校、类别……"/></div>	
+			<div class = "header_search"><input type = "search" placeholder = "课程，学校，类别……"/></div>	
 		</div>	
 		<div class = "school">
 			<div class = "left_bar">
 				<image class = "school_pic" src = "eduery.JPG"></image>
 				<div class = "school_name">学校姓名</div>
-				<div class = "school_action">学生管理</div>
-				<div class = "school_action">教师管理</div>
-				<div class = "school_action present_act">课程管理</div>
+				<div class = "school_action"><a href = "/schoolstudents/">
+					学生管理
+				</a></div>
+				<div class = "school_action"><a href = "/schoolteachers/">
+					教师管理
+				</a></div>
+				<div class = "school_action present_act">
+					课程管理
+				</div>
 			</div>
 			<div class = "right-bar">
 				<div class = "teacher_course_title">所有课程</div>

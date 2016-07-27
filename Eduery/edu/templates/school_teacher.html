@@ -163,8 +163,8 @@
 		<div class = "header">
 			<image class = "header_log" src = "/static/img/eduery.JPG"/>
 			<div class = "header_name">FFF团烧烤教学</div>
-			{% if username != 'null' %}
-            <div class = "header_load">{{username}}</div>
+			{% if request.user.username != 'null' %}
+            <div class = "header_load">{{request.user.username}}</div>
             <div class = "header_regist"><a href = "/logout/">登出</a></div>
             <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
             {% else %}
@@ -177,45 +177,31 @@
 			<div class = "left_bar">
 				<image class = "school_pic" src = "eduery.JPG"></image>
 				<div class = "school_name">学校姓名</div>
-				<div class = "school_action">学生管理</div>
-				<div class = "school_action present_act">教师管理</div>
-				<div class = "school_action">课程管理</div>
+				<div class = "school_action"><a href = "/schoolstudents/">
+					学生管理
+				</a></div>
+				<div class = "school_action present_act">
+					教师管理
+				</div>
+				<div class = "school_action"><a href = "/schoolcourses/">
+					课程管理
+				</a></div>
 			</div>
 			<div class = "right_bar">
+				共有{{teacherinschoolcount}}位教师
+				{% for teacher in teacherinschool %}
 				<div class = "teacher">
 					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
-					<div class = "teacher_name">FFF团团长</div>
-					<div class = "teacher_job">FFF团 团长</div>
-					<div class = "teacher_info">这人就是团长</div>
+					<div class = "teacher_name">{{teacher.username}}</div></br>
+					<div class = "teacher_job">{{teacher.name}}</div></br>
+					<div class = "teacher_info">{{teacher.teachernum}}</div></br>
+					<a href = "/schoolteacher/{{teacher.pk}}">
+						查看具体信息
+					</a>
 				</div>
-				<div class = "teacher">
-					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
-					<div class = "teacher_name">FFF团团长</div>
-					<div class = "teacher_job">FFF团 团长</div>
-					<div class = "teacher_info">这人就是团长</div>
-				</div>
-				<div class = "teacher">
-					<image class = "teacher_pic" src = "http://www.qq1234.org/uploads/allimg/150224/211I06260-22.jpg"></image>
-					<div class = "teacher_name">FFF团团长</div>
-					<div class = "teacher_job">FFF团 团长</div>
-					<div class = "teacher_info">这人就是团长</div>
-				</div>
-				<image class = "teacher_add" src = "http://www.iconpng.com/png/windows8_icons2/plus_.png"></image>
-				<div class = "teacher">				
-					<label for = "id_pic">
-						<image class = "teacher_pic" src = "http://www.ld12.com/upimg358/20160130/14271152543633.jpg"></image>
-					</label>
-					<input type = "file" id = "id_pic">				
-					<div class = "teacher_name">
-						<input type = "text" class = "input_name" placeholder="请输入教师姓名(10字以内)" maxlength="10">
-					</div>
-					<div class = "teacher_job">
-						<input type = "text" class = "input_job" placeholder="请输入教师职位(50字以内)" maxlength="50">
-					</div>
-					<div class = "teacher_info">
-						<textarea class = "input_info" placeholder="请输入对课程的简要介绍"></textarea>
-					</div>
-				</div>
+				{% endfor %}
+				
+
 			</div>
 		</div>
 	</body> 

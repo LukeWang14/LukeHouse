@@ -113,23 +113,24 @@
 			}
 			.current_question_info{
 				width: 65%;
-				height: 80%;
-				border: 1px solid grey;
+				height: 85%;
+				border-right: 1px solid grey;
 				float: left;
 			}
 			.current_question_title{
 				width: 100%;
 				height: 15%;
-				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1px solid grey;
+				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				line-height: 61px;
+				border-bottom: 1px solid grey;
 				text-align: center;
 				float: center;
 			}
 			.current_question_content{
 				width: 100%;
 				height: 100px;
-				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1px solid grey;
+				font: 14px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				border-bottom: 1px solid grey;
 				text-align: center;
 				float: left;
 			}
@@ -137,26 +138,25 @@
 				width: 100%;
 				height: 40px;
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1px solid grey;
-				text-align: center;
+				line-height: 41px;
+				border-bottom: 1px solid grey;
+				text-align: right;
 				float: left;
 			}
 			.current_question_answer{
 				width: 100%;
 				height: 180px;
-				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1px solid grey;
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F; 
 				text-align: center;
 				float: left;
 			}
 			.current_question_answer_add{
 				width: 30%;
-				height: 80%;
+				height: 85%;
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border: 1px solid grey;
 				text-align: center;
 				float: right;
-				top: 0px;
 			}
 			.course_note{
 				width: 31.5%;
@@ -192,7 +192,8 @@
 			}
 			.question_ans{
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				border-bottom: 1px solid grey;
+				border-top: 1px solid grey;
+				color: black;
 			}
 			.question_add{
 				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
@@ -201,7 +202,21 @@
 				text-align: center;
 				float: right;
 			}
-			
+			.answer-form{
+				border: 1px solid grey;
+				border-radius: 4px;
+				background-color: white;
+				height: 85%;
+			}
+			.btn{
+				float: right;
+				background-color: #63318F;	
+				color: white;
+				border-radius: 4px;
+				width: 100%;
+				height: 13.5%;
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+			}
 			</style> 
 	</head> 
 
@@ -270,11 +285,11 @@
 					</div>
 				</div>
 				<div class = "current_question_answer_add">
-					<form method = "POST" class = "answer-form">{% csrf_token %}
-						{{ answerform.as_p }}
-						<button type = "submit" class = "save btn btn-default">
-							add answer
-						</button>
+	<!>			<form method = "POST" class = "answer-form">{% csrf_token %}
+						{{ answerform.as_p }}					
+					<button type = "submit" class = "save btn btn-default">
+						add answer
+					</button>	<!>
 					</form>
 				</div>
 			</div>

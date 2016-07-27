@@ -33,9 +33,11 @@ def login(request):
                 if user[0].Type == 'student':
                     return render_to_response('homepage/homepage.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'studentnum':user[0].studentnum, 'Type':'student', 'selfintroduction':user[0].selfintroduction, 'courses': courses, 'categories': categories, 'courseforuser':courseforuser})
                 elif user[0].Type == 'teacher':
-                    return render_to_response('homepage/homepageteacher.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'teachernum':user[0].teachernum, 'Type':'teacher', 'selfintroduction':user[0].selfintroduction, 'courseforuser': courseforuser})
+                    return render_to_response('homepage/homepageteacher.html',{'username':user[0].username, 'name':user[0].name, 'school':user[0].school, 'teachernum':user[0].teachernum, 'Type':'teacher', 'selfintroduction':user[0].selfintroduction, 'teaprofession': user[0].TeaProfession,'courseforuser': courseforuser})
                 elif user[0].Type == 'school':
-                    return render_to_response('homepage/homepageschool.html',{'username':user[0].username, 'school':user[0].school, 'Type':'school'})
+                    studentinschool = UserInfo.objects.filter(school__exact=username, Type__exact='student')
+                    studentinschoolcount = studentinschool.count()
+                    return render_to_response('homepage/homepageschool.html',{'username':user[0].username, 'school':user[0].school, 'Type':'school', 'studentinschoolcount': studentinschoolcount, 'studentinschool': studentinschool})
             else:
                 return HttpResponseRedirect('/login/')
     else:

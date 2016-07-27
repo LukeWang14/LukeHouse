@@ -95,7 +95,12 @@
 				width : 45%;
 				float: left;
 				background-color: #63318F;
+				height: 32px;
+				margin-bottom: 20px;
+			}
+			.course_info_button a{
 				color: white;
+				text-decoration: none;
 			}
 			.course_part_title{
 				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
@@ -200,7 +205,11 @@
 			<div class = "header_name">EDUERY</div>
             {% if request.user %}
             <div class = "header_load">{{request.user.username}}</div>
-            <div class = "header_regist"><a href = "/logout/">登出</a></div>
+            {% if request.user.Type != school %}
+            <div class = "header_regist"><a href = "/logout/">登出|</a></div>
+            {% else %}
+            <div class = "header_regist"><a href = "/schoolcourses/">返回课程列表|</a></div>
+            {% endif %}
             <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
             <div class = "header_changeimfo"><a href = "/changeselfinformation/">修改个人信息</a></div>
             <div class = "header_selfintro">{{selfintroduction}}</div>

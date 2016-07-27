@@ -91,13 +91,19 @@
 				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 				color: #63318F;			
 			}
-			.school_action{
+			.teacher_action{
 				width: 100%;
 				margin-bottom: 20px;
 			}
-			.school_action_button{
+			.teacher_action_button{
 				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;	
 				margin: 0, 10px, 20px, 0;
+			}
+			.announcement{
+				width: 65%;
+				height: 100px;
+				border: 1px solid grey;
+				float: right;
 			}
 			.course_video{
 				width: 65%;
@@ -105,27 +111,50 @@
 				border: 1px solid grey;
 				float: right;
 			}
-
-			.class_test{
-				width: 65%;
-				height: 100px;
+			.course_note{
+				width: 31.5%;
+				height: 300px;
 				border: 1px solid grey;
-				float: right;
+				float: right;		
 				background-color: white;
 				margin-top: 20px;
 			}
-
-			.announcement{
-				width: 59%;
-				height: 60px;
-				float: right;
-				color: #63318F;
-				font: 20px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
-				margin-right: 4.51%;
-				margin-top: 1%;
-				text-align: center;
-				line-height: 60px;
+			.course_note_content{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				border: 1.5px solid black;
 			}
+			.course_note_add{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				width: 90px;
+				text-align: center;
+				float: right;
+			}
+			.question{
+				width: 65%;
+				height: 300px;
+				border: 1px solid grey;
+				float: right;		
+				background-color: white;
+				margin-top: 20px;
+				overflow: scroll;
+			}
+			.question_title{
+				font: 18px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				color: #63318F;	
+			}
+			.question_ans{
+				font: 16px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				border-bottom: 1px solid grey;
+			}
+			.question_add{
+				font: 12px/1.5 Helvetica Neue,tahoma,arial,"Hiragino Sans GB",Microsoft YaHei;
+				background-color: #e3e0e0;
+				width: 90px;
+				text-align: center;
+				float: right;
+			}
+			
 			</style> 
 	</head> 
 
@@ -144,42 +173,69 @@
 			<div class = "header_regist"><a href = "/register/">注册</a></div>
             {% endif %}
 		</div>
-
-		{% if chapter %}
-		{% else %}
-		<div class = "announcement">
-			{{announcement.AnnouncementContent}}	
-		</div>
-		{% endif %}
-
 		<div class = "video">
-
-			<div class = "school_action">
-				<a class = "school_action_button">课程管理</a>
-				<a class = "school_action_button">教师管理</a>
-				<a class = "school_action_button">学生管理</a>
+			<div class = "teacher_action">
+				<a class = "teacher_action_button">上传课件</a>
+				<a class = "teacher_action_button">发布公告</a>
+				<a class = "teacher_action_button">讨论</a>
 			</div>
-
 			<div class = "course_index">
 				<div class = "course_part_title">课程章节
-					<a class = "course_control">[添加章节]</a>
 					<a class = "course_index_span_all">[全部展开]</a>
-				</div>	
+				</div>				
+																	
 				{%for chapter in chapters%}
 				{% if chapter.FromCourse.Name == course.Name %}			
 				<div class = "course_index_1">
-					<a href = "/schoolcourse/{{course.pk}}/courseInfo/{{chapter.pk}}">
+					<a href = "/teachercourse/{{course.pk}}/courseInfo/{{chapter.pk}}">
 						{{ chapter.ChapterName }}</a>
 					<a class = "course_index_span">[展开]</a>
-					<div class = "course_index_2">{{chapter.Introduction}}</div>
-					<a class = "course_control">[上传视频]</a>				
+					<div class = "course_index_2">{{chapter.Introduction}}</div>				
 				</div>		
 				{% endif %}
-				{% endfor %}													
+				{% endfor %}		
+
 			</div>
 
+			{% if chapter %}
+			{% else %}
+			<div class = "announcement">
+				
+				{{announcement.AnnouncementContent}}
+
+				<div class = "current_question_answer_add">
+					<form method = "POST" class = "announcement-form">{% csrf_token %}
+						{{ announcementform.as_p }}
+						<button type = "submit" class = "save btn btn-default">
+							添加公告
+						</button>
+					</form>
+				</div>
+			</div>
+			{% endif %}
+
 			<video class = "course_video" src = ""></video>
-			<div class = "class_test">添加测试题</div>
+
+			<div class = "question">
+				{% for question in questions %}
+				{% if question.FromChapter.pk == chapter.pk %}
+
+				<div class = "question_title"><a href = "/teachercourse/{{course.pk}}/courseInfoQuestion/{{chapter.pk}}/question/{{question.pk}}">
+					{{question.FromStudent}}提问{{question.QuestionTitle}}
+				</a></div>
+
+				{% for answer in answers %}
+				{% if answer.ToQuestion == question %}
+				{% if answer.FromTeacher.username = request.user.username %}
+				<div class = "question_ans">我的回答：{{answer.AnswerContent}}</div>
+				{% endif %}
+				{% endif %}
+				{% endfor %}
+
+				{% endif %}
+				{% endfor %}	
+
+			</div>
 			
 		</div>
 	</body> 
