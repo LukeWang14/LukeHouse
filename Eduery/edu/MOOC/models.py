@@ -87,8 +87,8 @@ class Video(models.Model):
 
 
 class Announcement(models.Model):
-	FromChapter = models.ForeignKey("Chapter")
-	AnnouncementContent = models.CharField(max_length = 50)
+	FromCourse = models.ForeignKey("Course")
+	AnnouncementContent = models.CharField(max_length = 50, default = "当前无公告")
 	CreatedAt = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.AnnouncementContent

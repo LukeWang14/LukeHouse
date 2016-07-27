@@ -209,6 +209,7 @@
 
 			<video class = "course_video" src = ""></video>
 
+			{% if chapter %}
 			<div class = "student_question">
 				{% for question in questions %}
 				{% if question.FromChapter.pk == chapter.pk %}
@@ -262,6 +263,8 @@
 			
 
 			<div class = "class_test">这是测试题</div>
+			{% endif %}
+
 		</div>
 	</body> 
 	<script type="text/javascript">

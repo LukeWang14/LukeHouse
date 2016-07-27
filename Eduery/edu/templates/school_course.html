@@ -142,8 +142,8 @@
 		<div class = "header">
 			<image class = "header_log" src = "/static/img/eduery.JPG"/>
 			<div class = "header_name">FFF团烧烤教学</div>
-			{% if username != 'null' %}
-            <div class = "header_load">{{username}}</div>
+			{% if request.user.username != 'null' %}
+            <div class = "header_load">{{request.user.username}}</div>
             <div class = "header_regist"><a href = "/logout/">登出</a></div>
             <div class = "header_changepw"><a href = "/changepassword/">修改密码</a></div>
             {% else %}
@@ -167,30 +167,27 @@
 					<a class = "course_stat">即将开课</a>
 					<a class = "course_stat">已结课</a>
 				</div>
+				
+				{% for course in courseforuser %}
 				<div class = "teacher_course">
 					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFF团烧烤教学</div>
+					<div class = "course_name"><a href = "/schoolcourse/{{ course.pk }}">
+						{{ course.Name}}
+					</a></div>
+					{% if course.ValidOrNot == 1%}
+					<div class = "course_button">待开课</div>
+					{% endif %}
+					{% if course.ValidOrNot == 2%}
+					<div class = "course_button">开课中</div>
+					{% endif %}
+					{% if course.ValidOrNot == 3%}
 					<div class = "course_button">已结课</div>
-					<div class = "course_info">学生提问： 0</div>
+					{% endif %}
 					<div class = "course_info">选课人数： 1</div>
-					<div class = "course_info">开始时间： 1111-11-11</div>
+					<div class = "course_info">开课教师： </div>
 				</div>
-				<div class = "teacher_course">
-					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFF团烧烤教学</div>
-					<div class = "course_button">已结课</div>
-					<div class = "course_info">学生提问： 0</div>
-					<div class = "course_info">选课人数： 1</div>
-					<div class = "course_info">开始时间： 1111-11-11</div>
-				</div>
-				<div class = "teacher_course">
-					<image class = "course_pic" src = "http://h.hiphotos.baidu.com/zhidao/pic/item/d0c8a786c9177f3ef0adea9972cf3bc79e3d568c.jpg"></image>
-					<div class = "course_name">FFF团烧烤教学</div>
-					<div class = "course_button">已结课</div>
-					<div class = "course_info">学生提问： 0</div>
-					<div class = "course_info">选课人数： 1</div>
-					<div class = "course_info">开始时间： 1111-11-11</div>
-				</div>
+				{% endfor%}
+
 			</div>
 		</div>
 	</body> 

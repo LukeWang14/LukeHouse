@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render
+from django.shortcuts import render
 from django import forms
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
@@ -8,29 +8,16 @@ from MOOC.forms import *
 from MOOC.login import *
 
 def course_show(request, course_id):
-	if not request.user.is_authenticated(): 
-		return HttpResponseRedirect('/login/')
 	course = Course.objects.get(pk=course_id)
 	username = request.user.username
-	user = UserInfo.objects.filter(username__exact=username)
+	user = UserInfo.objects.get(username__exact=username)
 	if user:
-		courseforuser = user[0].CourseList.all().filter(pk = course.pk)
+		courseforuser = user.CourseList.all().filter(pk = course.pk)
 	else:
 		onecourseforuser = UserInfo()
 		courseforuser = [onecourseforuser]
 	chapters = Chapter.objects.all()
-	return render(request, 'courseIntro.html', {'course': course, 'chapters': chapters, 'courseforuser': courseforuser})
-
-def course_delete(request, course_id):
-	course = Course.objects.get(pk=course_id)
-	username = request.user.username
-	user = UserInfo.objects.filter(username__exact=username)
-	user[0].CourseList.remove(course)
-	courses = Course.objects.all()
-	categories = Category.objects.all()
-	courseforuser = user[0].CourseList.all()
-
-	return render(request, 'homepage/homepage.html', {'courses': courses, 'categories': categories, 'courseforuser': courseforuser})
+	return render(request, 'courseIntro.html', {'user': user, 'course': course, 'chapters': chapters, 'courseforuser': courseforuser})
 
 def course_in(request, course_id):
 	if not request.user.is_authenticated(): 
@@ -45,9 +32,9 @@ def course_in(request, course_id):
 		announcement.save()
 		announcementform = AnnouncementForm()
 
-	course = Course.objects.get(pk=course_id)
 
-	announcements = Announcement.objects.filter(FromCourse__pk=course_id)
+	course = Course.objects.get(pk=course_id)
+	announcements = Announcement.objects.filter(FromCourse__pk = course_id)
 	if len(announcements) == 0:
 		blankannouncement = Announcement()
 		blankannouncement.FromCourse = course
@@ -57,9 +44,9 @@ def course_in(request, course_id):
 	else:
 		announcement = announcements[len(announcements) - 1]
 
+
 	username = request.user.username
 	user = UserInfo.objects.filter(username__exact=username)
-	course = Course.objects.get(pk=course_id)
 	courseforuser = user[0].CourseList.all().filter(pk = course.pk)
 	if not courseforuser:
 		user[0].CourseList.add(course)
@@ -76,11 +63,12 @@ def course_in(request, course_id):
 		chapter.save()
 		chapterform = ChapterForm()
 	chapters = Chapter.objects.all()
-
-	return render(request, 'courseIn.html', {'course': course, 'chapters': chapters, 'announcement': announcement, 'announcementform': announcementform})
+	return render(request, 'school_video.html', {'course': course, 'chapters': chapters, 'announcement': announcement, 'announcementform': announcementform})
 
 
 def chapter_list(request, course_id, chapter_id):
+	if not request.user.is_authenticated(): 
+		return HttpResponseRedirect('/login/')
 	params = request.POST if request.method == 'POST' else None
 	noteform = NoteForm(params)
 	if noteform.is_valid():
@@ -156,10 +144,23 @@ def chapter_list(request, course_id, chapter_id):
 		announcement = announcements[len(announcements) - 1]
 	else:
 		announcement = announcements[len(announcements) - 1]
-
 	chapter = Chapter.objects.get(pk=chapter_id)
 
-	return render(request, 'courseIn.html', {'notes': notes, 'noteform' : noteform, 'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'announcement': announcement, 'announcementform': announcementform})
+	return render(request, 'school_video.html', {'notes': notes, 'noteform' : noteform, 'questions': questions, 'questionform' : questionform, 'answers': answers, 'answerform': answerform, 'course':course, 'chapters':chapters, 'chapterform': chapterform, 'chapter' : chapter, 'announcement': announcement, 'announcementform': announcementform})
 
 
+def course_delete(request, course_id):
+	course = Course.objects.get(pk=course_id)
+	username = request.user.username
+	user = UserInfo.objects.get(username__exact=username)
+	courseforuser = user.CourseList.all().filter(pk = course.pk)
+	courseforuser[0].delete()
+
+	if not request.user.is_authenticated(): 
+		return HttpResponseRedirect('/login/')
+	username = request.user.username
+	user = UserInfo.objects.filter(username__exact=username)
+	if user:
+		courseforuser = user[0].CourseList.all()
+	return render(request, 'homepage/homepageschool.html', {'user': user, 'courseforuser': courseforuser})
 

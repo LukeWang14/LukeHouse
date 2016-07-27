@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^course/(?P<course_id>[0-9]+)/', include([
         url(r'^$', 'MOOC.notes.course_show'),
         url(r'^courseInfo/$', 'MOOC.notes.course_in'),
+        url(r'^courseInfo/delete/$', 'MOOC.notes.course_delete'),
         url(r'^courseInfo/(?P<chapter_id>[0-9]+)/', 'MOOC.notes.chapter_list')
     ])),
     url(r'^teachercourse/(?P<course_id>[0-9]+)/', include([
@@ -40,4 +41,11 @@ urlpatterns = [
         url(r'^courseInfoQuestion/(?P<chapter_id>[0-9]+)/question/(?P<question_id>[0-9]+)/', 'MOOC.teacherCourse.question')
     ])),
     url(r'^category/(?P<category_id>[0-9]+)/', 'MOOC.category.category'),
+    url(r'^schoolcourses/', 'MOOC.schoolinfo.schoolcourse'),
+    url(r'^schoolcourse/(?P<course_id>[0-9]+)/', include([
+        url(r'^$', 'MOOC.schoolCourse.course_show'),
+        url(r'^delete/$', 'MOOC.schoolCourse.course_delete'),
+        url(r'^courseInfo/$', 'MOOC.schoolCourse.course_in'),
+        url(r'^courseInfo/(?P<chapter_id>[0-9]+)/', 'MOOC.schoolCourse.chapter_list'),
+    ])),
 ]

@@ -221,23 +221,6 @@
             {% endif %}
 		</div>
 
-		<div class = "announcement">
-
-			
-			{{announcement.AnnouncementContent}}
-			
-
-			<div class = "current_question_answer_add">
-				<form method = "POST" class = "announcement-form">{% csrf_token %}
-					{{ announcementform.as_p }}
-					<button type = "submit" class = "save btn btn-default">
-						add answer
-					</button>
-				</form>
-			</div>
-
-		</div>
-
 		<div class = "video">
 			<div class = "teacher_action">
 				<a class = "teacher_action_button">上传课件</a>

@@ -12,6 +12,7 @@ from MOOC.admin import *
 def logout(request):
     auth.logout(request)
     courses = Course.objects.all()
-    return render_to_response('homepage/homepage.html',{'username':'null', 'courses': courses})
+    categories = Category.objects.all()
+    return render_to_response('homepage/homepage.html',{'username':'null', 'courses': courses, 'categories': categories})
 
 

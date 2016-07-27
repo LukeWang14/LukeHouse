@@ -22,7 +22,8 @@ def login(request):
             categories = Category.objects.all();
             #获取的表单数据与数据库进行比较
             user = UserInfo.objects.filter(username__exact=username,password__exact=password)
-            courseforuser = user[0].CourseList.all()
+            if user:
+                courseforuser = user[0].CourseList.all()
             #返回对应数据库内容的对象
             User = authenticate(username=username,password=password)
             #返回django自带的user
