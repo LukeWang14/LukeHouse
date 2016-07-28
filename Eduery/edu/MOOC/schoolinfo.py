@@ -21,9 +21,10 @@ def schoolstudent(request):
 		return HttpResponseRedirect('/login/')
 	username = request.user.username
 	user = UserInfo.objects.filter(username__exact=username)
+	username = user[0].username
 	studentinschool = UserInfo.objects.filter(school__exact=username, Type__exact='student')
 	studentinschoolcount = studentinschool.count()
-	return render(request, 'homepage/homepageschool.html', {'studentinschool': studentinschool, 'studentinschoolcount': studentinschoolcount})
+	return render(request, 'homepage/homepageschool.html', {'username': username,'studentinschool': studentinschool, 'studentinschoolcount': studentinschoolcount})
 
 def schoolteacher(request):
 	if not request.user.is_authenticated(): 
@@ -38,9 +39,10 @@ def student_show(request, student_id):
 	if not request.user.is_authenticated(): 
 		return HttpResponseRedirect('/login/')
 	student = UserInfo.objects.get(pk=student_id)
+	username = student.name
 	studentcourse = student.CourseList.all()
 	studentcoursecount = studentcourse.count()
-	return render(request, 'student.html', {'student': student, 'studentcourse': studentcourse, 'studentcoursecount': studentcoursecount})
+	return render(request, 'student.html', {'username': username,'student': student, 'studentcourse': studentcourse, 'studentcoursecount': studentcoursecount})
 
 def student_delete(request, student_id):
 	if not request.user.is_authenticated(): 

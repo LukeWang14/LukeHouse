@@ -152,7 +152,8 @@ def registerschool(request):
 
 
 def homepage(request):
-    courses = Course.objects.all()
+    Course.objects.order_by('Type__name')
+    courses = Course.objects.all().order_by('Type')
     categories = Category.objects.all()
     return render(request, 'homepage/homepage.html', {'username':'null', 'courses' : courses, 'categories': categories})
 

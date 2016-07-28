@@ -41,6 +41,8 @@ urlpatterns = [
         url(r'^courseInfoQuestion/(?P<chapter_id>[0-9]+)/question/(?P<question_id>[0-9]+)/', 'MOOC.teacherCourse.question')
     ])),
     url(r'^category/(?P<category_id>[0-9]+)/', 'MOOC.category.category'),
+    url(r'^search/(?P<search_content>.*)/', 'MOOC.search.searchcourse'),
+    url(r'^searchdouble/(?P<search_content>.*)/category/(?P<category_id>[0-9]+)/', 'MOOC.search.searchcoursecategory'),
     url(r'^schoolcourses/', 'MOOC.schoolinfo.schoolcourse'),
     url(r'^schoolstudents/', 'MOOC.schoolinfo.schoolstudent'),
     url(r'^schoolteachers/', 'MOOC.schoolinfo.schoolteacher'),
